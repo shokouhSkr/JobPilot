@@ -1,4 +1,5 @@
 import logo from "../assets/logo.png";
-import Jobhunting from "../assets/jobhunting";
+import Jobhunting from "./Jobhunting";
+import NotFound from "./notFound";
 
-export { logo, Jobhunting };
+export { logo, Jobhunting, NotFound };
