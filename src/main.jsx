@@ -10,14 +10,14 @@ const theme = createTheme({
     button: {
       textTransform: "none",
     },
+    fontFamily: "Roboto",
   },
 });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      {/* <App /> */}
-      <Landing />
+      <App />
     </ThemeProvider>
   </React.StrictMode>
 );

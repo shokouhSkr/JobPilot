@@ -1,7 +1,11 @@
-import { Button } from "@mui/material";
+import { Landing } from "./pages";
 
 function App() {
-  return <div className="h-screen bg-blue-200 p-3 font-roboto">App</div>;
+  return (
+    <main className="font-roboto text-main">
+      <Landing />
+    </main>
+  );
 }
 
 export default App;
