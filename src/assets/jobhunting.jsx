@@ -3,7 +3,7 @@ import React from "react";
 const jobhunting = () => {
   return (
     <svg
-      className="-mt-16 w-[450px]"
+      className="-mt-14 w-[450px]"
       xmlns="http://www.w3.org/2000/svg"
       dataname="Layer 1"
       width="726.42275"

@@ -1,10 +1,16 @@
-import { Landing } from "./pages";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Landing, Error, Dashboard, Register } from "./pages";
 
 function App() {
   return (
-    <main className="font-roboto text-main">
-      <Landing />
-    </main>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="landing" element={<Landing />} />
+        <Route path="register" element={<Register />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </Router>
   );
 }
 

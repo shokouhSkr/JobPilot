@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { createTheme, ThemeProvider } from "@mui/material";
-import Landing from "./pages/Landing";
 
 const theme = createTheme({
   typography: {

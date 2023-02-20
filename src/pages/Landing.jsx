@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 
 const Landing = () => {
   return (
-    <div className="grid h-screen grid-cols-2 grid-rows-[100px_minmax(650px,_1fr)] gap-x-8 overflow-hidden bg-[#f5f7f8] px-[5%] md:px-[7%]">
+    <div className="grid h-screen grid-cols-2 grid-rows-[100px_minmax(650px,_1fr)] gap-x-8 overflow-hidden bg-[#f5f7f8] px-[5%] font-roboto text-main md:px-[7%]">
       <nav className="col-span-full flex items-center justify-start">
         <img src={logo} alt="JobPilot logo" className="h-14 w-14 rounded-lg" />
         <span className="ml-3 text-2xl font-extrabold tracking-widest">JobPilot</span>
@@ -26,7 +26,7 @@ const Landing = () => {
           </Button>
         </div>
       </div>
-      <div className="col-start-2 hidden h-[calc(100vh-100px)] justify-end md:flex">
+      <div className="col-start-2 hidden h-[calc(100vh-100px)] items-center justify-end md:flex">
         <Jobhunting />
       </div>
     </div>

@@ -9,10 +9,10 @@ module.exports = {
       md: "960px",
       lg: "1440px",
     },
+    fontFamily: {
+      roboto: ["Roboto", "sans-serif"],
+    },
     extend: {
-      fontFamily: {
-        roboto: ["Roboto", "sans-serif"],
-      },
       colors: {
         main: "#263238",
         primary: "#6d8692",
