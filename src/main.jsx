@@ -11,6 +11,11 @@ const theme = createTheme({
     },
     fontFamily: "Roboto",
   },
+  palette: {
+    primary: {
+      main: "#263238",
+    },
+  },
 });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
