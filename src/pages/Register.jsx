@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
 import { logo } from "../assets";
 
-const initialState = {
+const initialValues = {
   name: "",
   email: "",
   password: "",
@@ -12,26 +12,42 @@ const initialState = {
 };
 
 const Register = () => {
-  const [values, setValues] = useState(initialState);
+  const [values, setValues] = useState(initialValues);
+  const [errors, setErrors] = useState({});
+
+  const validation = () => {
+    let temp = [];
+
+    temp.name = values.name ? "" : "name required *";
+    temp.email = values.email ? "" : "email required *";
+    temp.password = values.password ? "" : "password required *";
+
+    setErrors({ ...temp });
+  };
 
   const valueHandler = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
+    if (e.target.value !== "") setErrors({ ...errors, [name]: false });
+
     setValues({ ...values, [name]: value });
     console.log(values);
   };
 
-  const toggleBtn = () => {
+  const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    validation();
   };
 
   return (
     <div className="grid h-screen place-items-center bg-screen px-[5%] font-roboto text-main md:px-[7%]">
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
+        onSubmit={submitHandler}
         className="max-w-sm rounded-md border-t-[6px] border-main bg-white p-8 text-center shadow-md"
       >
         <header className="mb-6 flex items-center justify-center">
@@ -39,34 +55,40 @@ const Register = () => {
           <span className="ml-3 text-2xl font-extrabold tracking-widest">JobPilot</span>
         </header>
 
-        {!values.isMember && <h3 className="mb-10 text-3xl">Register</h3>}
-        {values.isMember && <h3 className="mb-10 text-3xl">Login</h3>}
+        <h3 className="mb-10 text-3xl">{!values.isMember ? "Register" : "Login"}</h3>
 
         <div className="mb-10 space-y-5 px-[2%]">
+          {/* name field */}
           {!values.isMember && (
             <TextField
               fullWidth
+              error={errors.name}
+              helperText={errors.name}
               id="outlined-name"
               name="name"
               label="Name"
               type="name"
               value={values.name}
               onChange={valueHandler}
-              // InputLabelProps={{ shrink: true }}
             />
           )}
+          {/* email field */}
           <TextField
             fullWidth
+            error={errors.email}
+            helperText={errors.email}
             id="outlined-email"
             name="email"
             label="Email"
             type="email"
             value={values.email}
             onChange={valueHandler}
-            // InputLabelProps={{ shrink: true }}
           />
+          {/* password field */}
           <TextField
             fullWidth
+            error={errors.password}
+            helperText={errors.password}
             id="outlined-password-input"
             name="password"
             label="Password"
@@ -74,7 +96,6 @@ const Register = () => {
             autoComplete="current-password"
             value={values.password}
             onChange={valueHandler}
-            // InputLabelProps={{ shrink: true }}
           />
         </div>
 
@@ -82,6 +103,7 @@ const Register = () => {
           <Button
             variant="contained"
             size="large"
+            onClick={submitHandler}
             className="bg-primary text-lg font-normal capitalize"
           >
             submit
@@ -95,22 +117,12 @@ const Register = () => {
           </Button>
         </div>
 
-        {values.isMember && (
-          <p>
-            Not a member yet?
-            <Link onClick={toggleBtn} className="ml-1 text-primary">
-              Register
-            </Link>
-          </p>
-        )}
-        {!values.isMember && (
-          <p>
-            Already a member?
-            <Link onClick={toggleBtn} className="ml-1 text-primary">
-              Login
-            </Link>
-          </p>
-        )}
+        <p>
+          {values.isMember ? "Not a member yet?" : "Already a member?"}
+          <button type="button" onClick={toggleMember} className="ml-1 text-primary">
+            {values.isMember ? "Register" : "Login"}
+          </button>
+        </p>
       </form>
     </div>
   );
