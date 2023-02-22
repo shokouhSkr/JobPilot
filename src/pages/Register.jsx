@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-import { Button, TextField, Alert } from "@mui/material";
+import { validation } from "../utils/helpers";
+import { Button, TextField } from "@mui/material";
 import { logo } from "../assets";
 
 const initialValues = {
@@ -14,20 +15,6 @@ const Register = () => {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
 
-  const validation = () => {
-    let temp = [];
-
-    temp.name = values.name ? "" : "Name required *";
-    temp.email =
-      (values.email ? "" : "Email required *") ||
-      (values.email.includes("@") ? "" : "Please provide a valid email address.");
-    temp.password =
-      (values.password ? "" : "Password required *") ||
-      (values.password.length > 5 ? "" : "The password must be a minimum of 6 characters.");
-
-    setErrors({ ...temp });
-  };
-
   const valueHandler = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -35,7 +22,6 @@ const Register = () => {
     if (e.target.value !== "") setErrors({ ...errors, [name]: false });
 
     setValues({ ...values, [name]: value });
-    console.log(values);
   };
 
   const toggleMember = () => {
@@ -44,7 +30,7 @@ const Register = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    validation();
+    validation(values, setErrors);
   };
 
   return (
@@ -67,7 +53,7 @@ const Register = () => {
           {!values.isMember && (
             <TextField
               fullWidth
-              error={errors.name}
+              error={!errors.name === false}
               helperText={errors.name}
               id="outlined-name"
               name="name"
@@ -80,7 +66,7 @@ const Register = () => {
           {/* email field */}
           <TextField
             fullWidth
-            error={errors.email}
+            error={!errors.email === false}
             helperText={errors.email}
             id="outlined-email"
             name="email"
@@ -92,7 +78,7 @@ const Register = () => {
           {/* password field */}
           <TextField
             fullWidth
-            error={errors.password}
+            error={!errors.password === false}
             helperText={errors.password}
             id="outlined-password-input"
             name="password"
