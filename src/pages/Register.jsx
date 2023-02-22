@@ -43,12 +43,14 @@ const Register = () => {
 
   return (
     <>
-      {/*  */}
       {openAlert && (
-        <AlertMsg openAlert={openAlert} setOpenAlert={setOpenAlert} name={values.name} />
+        <AlertMsg
+          openAlert={openAlert}
+          setOpenAlert={setOpenAlert}
+          message={`welcome, ${values.name}!`}
+        />
       )}
 
-      {/*  */}
       <div className="grid h-screen place-items-center bg-screen px-[5%] font-roboto text-main md:px-[7%]">
         <form
           onSubmit={submitHandler}
