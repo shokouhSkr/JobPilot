@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Link } from "react-router-dom";
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, Alert } from "@mui/material";
 import { logo } from "../assets";
 
 const initialValues = {
@@ -18,9 +17,13 @@ const Register = () => {
   const validation = () => {
     let temp = [];
 
-    temp.name = values.name ? "" : "name required *";
-    temp.email = values.email ? "" : "email required *";
-    temp.password = values.password ? "" : "password required *";
+    temp.name = values.name ? "" : "Name required *";
+    temp.email =
+      (values.email ? "" : "Email required *") ||
+      (values.email.includes("@") ? "" : "Please provide a valid email address.");
+    temp.password =
+      (values.password ? "" : "Password required *") ||
+      (values.password.length > 5 ? "" : "The password must be a minimum of 6 characters.");
 
     setErrors({ ...temp });
   };
@@ -46,6 +49,8 @@ const Register = () => {
 
   return (
     <div className="grid h-screen place-items-center bg-screen px-[5%] font-roboto text-main md:px-[7%]">
+      {/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
+      {/* <Alert severity="success">This is a success alert — check it out!</Alert> */}
       <form
         onSubmit={submitHandler}
         className="max-w-sm rounded-md border-t-[6px] border-main bg-white p-8 text-center shadow-md"
