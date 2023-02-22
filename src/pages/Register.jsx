@@ -48,6 +48,7 @@ const Register = () => {
           openAlert={openAlert}
           setOpenAlert={setOpenAlert}
           message={`welcome, ${values.name}!`}
+          type="success"
         />
       )}
 

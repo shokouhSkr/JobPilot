@@ -5,11 +5,11 @@ const TransitionDown = (props) => {
   return <Slide {...props} direction="down" />;
 };
 
-const AlertMsg = ({ openAlert, setOpenAlert, message }) => {
+const AlertMsg = ({ openAlert, setOpenAlert, message, type }) => {
   return (
     <Snackbar
       open={openAlert}
-      autoHideDuration={2000}
+      autoHideDuration={2500}
       anchorOrigin={{
         vertical: "top",
         horizontal: "center",
@@ -17,7 +17,7 @@ const AlertMsg = ({ openAlert, setOpenAlert, message }) => {
       TransitionComponent={TransitionDown}
       onClose={() => setOpenAlert(false)}
     >
-      <Alert severity="success" className="w-80">
+      <Alert severity={type} className="w-80">
         {message}
       </Alert>
     </Snackbar>
