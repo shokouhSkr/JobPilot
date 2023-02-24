@@ -40,6 +40,13 @@ const Register = () => {
     dispatch(registerUser({ name, email, password }));
   };
 
+  useEffect(() => {
+    if (user)
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+  }, [user]);
+
   return (
     <div className="grid h-screen place-items-center bg-screen px-[5%] font-roboto text-main md:px-[7%]">
       <form
