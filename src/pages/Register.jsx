@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Button, TextField } from "@mui/material";
 import { logo } from "../assets";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { loginUser, registerUser } from "../features/user/userSlice";
 
@@ -15,6 +16,7 @@ const initialValues = {
 const Register = () => {
   const [values, setValues] = useState(initialValues);
   const { user, isLoading } = useSelector((store) => store.user);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const valueHandler = (e) => {
@@ -98,7 +100,7 @@ const Register = () => {
             variant="contained"
             size="small"
             onClick={submitHandler}
-            className="bg-primary text-lg font-normal capitalize"
+            className="text-lg font-normal capitalize"
           >
             submit
           </Button>
