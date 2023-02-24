@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { Button, TextField } from "@mui/material";
 import { logo } from "../assets";
 import { useSelector, useDispatch } from "react-redux";
 import { loginUser, registerUser } from "../features/user/userSlice";
-import { toast } from "react-toastify";
 
 const initialValues = {
   name: "",
