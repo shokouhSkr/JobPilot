@@ -1,11 +1,11 @@
 import React from "react";
 
-const Wrapper = ({ loading, children }) => {
+const Wrapper = ({ center, children }) => {
   return (
     <section
-      className={`col-span-full md:col-start-4 ${
-        loading ? "grid place-content-center" : ""
-      }  bg-blue-800`}
+      className={`${
+        center ? "grid place-content-center" : ""
+      } h-[calc(100vh-80px)] bg-blue-800 md:ml-80`}
     >
       {children}
     </section>

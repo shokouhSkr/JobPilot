@@ -1,7 +1,11 @@
-import React from "react";
+import { Wrapper } from "../../components";
 
 const Profile = () => {
-  return <div>Profile</div>;
+  return (
+    <Wrapper center>
+      <div className="bg-blue-900">profile</div>
+    </Wrapper>
+  );
 };
 
 export default Profile;

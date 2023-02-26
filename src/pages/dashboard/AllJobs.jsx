@@ -1,7 +1,11 @@
-import React from "react";
+import { Wrapper } from "../../components";
 
 const AllJobs = () => {
-  return <h1>AllJobs</h1>;
+  return (
+    <Wrapper center>
+      <div className="bg-blue-900">all jobs</div>
+    </Wrapper>
+  );
 };
 
 export default AllJobs;

@@ -18,14 +18,7 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="*" element={<Error />} />
       </Routes>
-      <ToastContainer
-        position="top-center"
-        autoClose={2500}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        theme="colored"
-      />
+      <ToastContainer position="top-center" autoClose={2500} hideProgressBar theme="colored" />
     </Router>
   );
 }

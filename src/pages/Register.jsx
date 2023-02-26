@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { Button, TextField } from "@mui/material";
-import { logo } from "../assets";
+import { Logo } from "../components";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { loginUser, registerUser } from "../features/user/userSlice";
@@ -53,11 +53,7 @@ const Register = () => {
         onSubmit={submitHandler}
         className="max-w-sm rounded-md border-t-[6px] border-main bg-white p-8 text-center shadow-md"
       >
-        <header className="mb-6 flex items-center justify-center">
-          <img src={logo} alt="JobPilot logo" className="h-14 w-14 rounded-lg" />
-          <span className="ml-3 text-2xl font-extrabold tracking-widest">JobPilot</span>
-        </header>
-
+        <Logo />
         <h3 className="mb-10 text-3xl">{!values.isMember ? "Register" : "Login"}</h3>
 
         {/* inputs */}

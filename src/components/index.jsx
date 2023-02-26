@@ -1,3 +1,6 @@
-import AlertMsg from "./Alert";
+import Wrapper from "./Wrapper";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+import Logo from "./Logo";
 
-export { AlertMsg };
+export { Header, Sidebar, Logo, Wrapper };
