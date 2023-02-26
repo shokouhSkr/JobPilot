@@ -1,13 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,tp}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   important: "#root",
   theme: {
     screens: {
       xs: "375",
       sm: "576px",
       md: "960px",
-      lg: "1440px",
+      lg: "1240px",
+      xl: "1440px",
     },
     fontFamily: {
       roboto: ["Roboto", "sans-serif"],
