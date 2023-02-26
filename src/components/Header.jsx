@@ -16,10 +16,10 @@ const Header = () => {
 
   return (
     <header className="flex h-20 items-center justify-end px-1 pt-4 text-2xl text-main md:ml-80">
-      <p className="w-full px-3 md:text-center">Dashboard</p>
-      <span className="py-1.5 px-2 md:hidden">
+      <span className="py-1.5 px-2.5 md:hidden">
         <GrMenu />
       </span>
+      <p className="w-full px-3 text-center">Dashboard</p>
       <div>
         <Button
           id="fade-button"
