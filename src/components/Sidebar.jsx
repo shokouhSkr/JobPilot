@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Logo } from "../components";
 import { Link } from "react-router-dom";
+import { Links } from "../utils/sidebarLinks";
 import { VscClose } from "react-icons/vsc";
 import { useSelector, useDispatch } from "react-redux";
 import { closeSidebar } from "../features/sidebar/sidebarSlice";
@@ -21,14 +23,28 @@ const Sidebar = () => {
       >
         <VscClose />
       </button>
+
       <div className="p-5">
         <Logo sidebar />
       </div>
-      <hr className="mb-4" />
-      <ul>
-        <li>
-          <Link to="/" className="flex items-center justify-start gap-4"></Link>
-        </li>
+
+      <hr className="mb-8" />
+
+      <ul className="px-4">
+        {Links.map((link) => {
+          const { id, title, path, icon } = link;
+          return (
+            <li key={id}>
+              <Link
+                to={path}
+                className="mb-1 flex items-center justify-start gap-4 rounded-lg px-10 py-4 text-lg transition-all duration-[400ms] hover:bg-primary hover:pl-12 hover:text-main"
+              >
+                <span>{icon}</span>
+                <span>{title}</span>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </aside>
   );

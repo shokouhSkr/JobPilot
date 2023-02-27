@@ -21,6 +21,7 @@ function App() {
           <Route path="all-jobs" element={<AllJobs />} />
           <Route path="add-job" element={<AddJob />} />
         </Route>
+
         <Route path="landing" element={<Landing />} />
         <Route path="register" element={<Register />} />
         <Route path="*" element={<Error />} />
