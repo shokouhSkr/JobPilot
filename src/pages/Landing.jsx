@@ -6,7 +6,7 @@ import { Logo } from "../components";
 const Landing = () => {
   return (
     <main className="grid h-screen grid-cols-2 grid-rows-[100px_minmax(650px,_1fr)] gap-x-8 overflow-hidden bg-screen px-[5%] font-roboto text-main md:px-[7%]">
-      <nav className="col-span-full mt-2 flex items-center justify-start">
+      <nav className="col-span-full mt-2 flex items-center justify-start pt-6">
         <Logo />
       </nav>
 

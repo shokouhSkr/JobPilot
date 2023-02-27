@@ -10,7 +10,7 @@ const initialValues = {
   name: "",
   email: "",
   password: "",
-  isMember: false,
+  isMember: true,
 };
 
 const Register = () => {
