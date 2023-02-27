@@ -5,7 +5,7 @@ const Wrapper = ({ center, children }) => {
     <section
       className={`${
         center ? "grid place-content-center" : ""
-      } h-[calc(100vh-80px)] bg-blue-800 md:ml-80`}
+      } h-[calc(100vh-64px)] bg-blue-800 md:ml-80`}
     >
       {children}
     </section>

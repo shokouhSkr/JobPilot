@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { GrMenu } from "react-icons/gr";
 import { Button, Menu, MenuItem, Fade, Avatar } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { toggleSidebar } from "../features/sidebar/sidebarSlice";
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const dispatch = useDispatch();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -15,10 +18,14 @@ const Header = () => {
   };
 
   return (
-    <header className="flex h-20 items-center justify-end px-1 pt-4 text-2xl text-main md:ml-80">
-      <span className="py-1.5 px-2.5 md:hidden">
+    <header className="flex h-16 items-end justify-end px-1 text-2xl text-main md:ml-80">
+      <button
+        type="button"
+        onClick={() => dispatch(toggleSidebar())}
+        className="py-1.5 px-2.5 md:hidden"
+      >
         <GrMenu />
-      </span>
+      </button>
       <p className="w-full px-3 text-center">Dashboard</p>
       <div>
         <Button
