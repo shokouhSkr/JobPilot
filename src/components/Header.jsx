@@ -21,15 +21,15 @@ const Header = () => {
   };
 
   return (
-    <header className="flex h-16 items-end justify-end px-1 text-2xl text-main md:ml-80">
+    <header className="mb-14 flex h-16 items-end justify-end px-1 text-2xl text-main md:ml-80">
       <button
         type="button"
         onClick={() => dispatch(toggleSidebar())}
-        className="py-1.5 px-2.5 md:hidden"
+        className="py-1.5 pl-5 md:hidden"
       >
         <GrMenu />
       </button>
-      <p className="w-full px-3 text-center">Dashboard</p>
+      <p className="w-full px-3 pl-8 text-center md:pl-14">Dashboard</p>
       <div>
         <Button
           id="fade-button"

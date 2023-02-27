@@ -18,6 +18,8 @@ module.exports = {
         screen: "#f5f7f8",
         main: "#263238",
         primary: "#6d8692",
+        hover: "#ffffff1a",
+        form: "#fff",
       },
     },
     plugins: [],
