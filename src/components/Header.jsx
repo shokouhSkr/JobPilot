@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { GrMenu } from "react-icons/gr";
 import { Button, Menu, MenuItem, Fade, Avatar } from "@mui/material";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toggleSidebar } from "../features/sidebar/sidebarSlice";
+import { logoutUser } from "../features/user/userSlice";
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -13,7 +15,8 @@ const Header = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleClose = (e) => {
+    if (e.target.textContent === "Logout") dispatch(logoutUser());
     setAnchorEl(null);
   };
 
@@ -47,7 +50,9 @@ const Header = () => {
           onClose={handleClose}
           TransitionComponent={Fade}
         >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
+          <MenuItem onClick={handleClose}>
+            <Link to="/profile">Profile</Link>
+          </MenuItem>
           <MenuItem onClick={handleClose}>Logout</MenuItem>
         </Menu>
       </div>
