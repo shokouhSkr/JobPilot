@@ -1,5 +1,3 @@
-import React from "react";
-
 import { logo, Jobhunting } from "../assets";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
