@@ -1,9 +1,10 @@
+import React, { useEffect } from "react";
 import { Wrapper, BasicSelect } from "../../components";
 import { TextField, Button } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { changeValueHandler, clearInputs } from "../../features/job/jobSlice";
-import AllJobs from "./AllJobs";
+import { createJob } from "../../features/job/jobSlice";
 
 const AddJob = () => {
   const {
@@ -18,6 +19,7 @@ const AddJob = () => {
     isEditing,
     editJobId,
   } = useSelector((store) => store.job);
+  const { user } = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
   const clearHandler = () => {
@@ -32,7 +34,7 @@ const AddJob = () => {
       return;
     }
 
-    dispatch();
+    dispatch(createJob({ position, company, jobType, status, jobLocation }));
   };
 
   const valueHandler = (e) => {
@@ -42,6 +44,10 @@ const AddJob = () => {
     dispatch(changeValueHandler({ name, value }));
   };
 
+  useEffect(() => {
+    dispatch(changeValueHandler({ name: "jobLocation", value: user.location }));
+  }, []);
+
   return (
     <Wrapper>
       <form
@@ -49,7 +55,7 @@ const AddJob = () => {
         className="relative rounded-lg bg-form p-4 pt-8 text-main shadow-md"
       >
         <div className="absolute -top-6 left-0 right-0 z-30 mx-8 rounded-lg bg-main p-6 text-form">
-          <h1 className="text-center text-lg">{isEditing ? "Add Job" : "Edit Job"}</h1>
+          <h1 className="text-center text-lg">{isEditing ? "Edit Job" : "Add Job"}</h1>
         </div>
 
         <div className="mt-10 grid grid-cols-1 grid-rows-4 gap-y-5 md:grid-cols-2 md:grid-rows-2 md:gap-8 md:p-4">

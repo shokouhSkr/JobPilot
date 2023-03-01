@@ -10,11 +10,26 @@ const initialState = {
   jobLocation: "",
   jobTypeOptions: ["remote", "part-time", "full-time", "internship"],
   jobType: "remote",
-  statusOptions: ["interview", "declined", "pending"],
+  statusOptions: ["interview", "pending", "declined"],
   status: "interview",
   isEditing: false,
   editJobId: "",
 };
+
+export const createJob = createAsyncThunk("job/createJob", async (job, thunkAPI) => {
+  try {
+    const res = await customFetch.post("/jobs", job, {
+      headers: {
+        authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
+      },
+    });
+
+    thunkAPI.dispatch(clearInputs());
+    return res.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.response.data.msg);
+  }
+});
 
 const jobSlice = createSlice({
   name: "job",
@@ -26,10 +41,23 @@ const jobSlice = createSlice({
     },
     clearInputs: () => {
       // in RTK, anything that returns, overwrite the state
-      return initialState;
+      return { ...initialState, jobLocation: getUserFromLocalStorage()?.location || "" };
     },
   },
-  // extraReducers: (builder) => {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(createJob.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(createJob.fulfilled, (state) => {
+        state.isLoading = false;
+        toast.success(`Job created`);
+      })
+      .addCase(createJob.rejected, (state, action) => {
+        state.isLoading = false;
+        toast.error(action.payload);
+      });
+  },
 });
 
 export const { changeValueHandler, clearInputs } = jobSlice.actions;

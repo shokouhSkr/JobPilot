@@ -105,7 +105,7 @@ const Register = () => {
             onClick={submitHandler}
             className="text-lg font-normal capitalize"
           >
-            submit
+            {values.isMember ? "Login" : "Submit"}
           </Button>
           <Button
             variant="contained"

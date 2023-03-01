@@ -3,4 +3,3 @@ const Form = () => {
 };
 
 export default Form;
-Form;
