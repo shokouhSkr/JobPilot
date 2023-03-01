@@ -35,7 +35,7 @@ const Profile = () => {
   };
 
   return (
-    <Wrapper center>
+    <Wrapper>
       <form
         onSubmit={submitHandler}
         className="relative rounded-lg bg-form p-4 pt-8 text-main shadow-md"
