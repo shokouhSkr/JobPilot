@@ -1,9 +1,15 @@
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Job, Loading, Wrapper } from "../components";
+import { getAllJobs } from "../features/allJobs/allJobsSlice";
 
 const JobsContainer = () => {
   const { isLoading, jobs } = useSelector((store) => store.allJobs);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllJobs());
+  }, []);
 
   if (isLoading) return <Loading />;
 
@@ -11,7 +17,7 @@ const JobsContainer = () => {
     return <h1 className="grid h-[calc(100vh-150px)] place-items-center">No jobs to display...</h1>;
 
   return (
-    <Wrapper>
+    <section>
       <h2>job info</h2>
       <div className="bg-pink-200">
         {jobs.map((job) => {
@@ -19,7 +25,7 @@ const JobsContainer = () => {
           return <Job key={job._id} {...job} />;
         })}
       </div>
-    </Wrapper>
+    </section>
   );
 };
 
