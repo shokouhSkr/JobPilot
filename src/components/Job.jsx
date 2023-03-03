@@ -2,6 +2,7 @@ import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
+import { deleteJob } from "../features/job/jobSlice";
 import moment from "moment";
 
 const Job = ({ _id, position, company, jobLocation, jobType, createdAt, status }) => {
@@ -41,7 +42,7 @@ const Job = ({ _id, position, company, jobLocation, jobType, createdAt, status }
         <Link to="/add-job" onClick={() => console.log("edit", _id)}>
           <Button variant="contained">edit</Button>
         </Link>
-        <Button variant="contained" onClick={() => console.log("del", _id)}>
+        <Button variant="contained" onClick={() => dispatch(deleteJob(_id))}>
           delete
         </Button>
       </footer>

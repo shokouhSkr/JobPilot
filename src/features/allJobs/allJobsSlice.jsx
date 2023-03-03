@@ -40,7 +40,14 @@ export const getAllJobs = createAsyncThunk("allJobs/getJobs", async (_, thunkAPI
 const allJobsSlice = createSlice({
   name: "allJobs",
   initialState,
-  // reducers: {},
+  reducers: {
+    showLoading: (state) => {
+      state.isLoading = true;
+    },
+    hideLoading: (state) => {
+      state.isLoading = false;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getAllJobs.pending, (state) => {
@@ -57,5 +64,5 @@ const allJobsSlice = createSlice({
   },
 });
 
-// export {} = allJobsSlice.actions
+export const { showLoading, hideLoading } = allJobsSlice.actions;
 export default allJobsSlice.reducer;
