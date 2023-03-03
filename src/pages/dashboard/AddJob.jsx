@@ -4,7 +4,7 @@ import { TextField, Button } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { changeValueHandler, clearInputs } from "../../features/job/jobSlice";
-import { createJob } from "../../features/job/jobSlice";
+import { createJob, editJob } from "../../features/job/jobSlice";
 
 const AddJob = () => {
   const {
@@ -34,6 +34,13 @@ const AddJob = () => {
       return;
     }
 
+    if (isEditing) {
+      dispatch(
+        editJob({ jobId: editJobId, job: { position, jobLocation, company, jobType, status } })
+      );
+      return;
+    }
+
     dispatch(createJob({ position, company, jobType, status, jobLocation }));
   };
 
@@ -45,7 +52,7 @@ const AddJob = () => {
   };
 
   useEffect(() => {
-    dispatch(changeValueHandler({ name: "jobLocation", value: user.location }));
+    if (!isEditing) dispatch(changeValueHandler({ name: "jobLocation", value: user.location }));
   }, []);
 
   return (

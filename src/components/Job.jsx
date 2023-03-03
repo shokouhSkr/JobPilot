@@ -2,7 +2,7 @@ import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { deleteJob } from "../features/job/jobSlice";
+import { deleteJob, setEditJob } from "../features/job/jobSlice";
 import moment from "moment";
 
 const Job = ({ _id, position, company, jobLocation, jobType, createdAt, status }) => {
@@ -40,7 +40,24 @@ const Job = ({ _id, position, company, jobLocation, jobType, createdAt, status }
       {/* buttons */}
       <footer className="flex gap-2">
         <Link to="/add-job" onClick={() => console.log("edit", _id)}>
-          <Button variant="contained">edit</Button>
+          <Button
+            variant="contained"
+            onClick={() =>
+              dispatch(
+                setEditJob({
+                  editJobId: _id,
+                  position,
+                  company,
+                  jobLocation,
+                  jobType,
+                  createdAt,
+                  status,
+                })
+              )
+            }
+          >
+            edit
+          </Button>
         </Link>
         <Button variant="contained" onClick={() => dispatch(deleteJob(_id))}>
           delete
