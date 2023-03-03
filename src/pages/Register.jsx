@@ -110,6 +110,7 @@ const Register = () => {
           <Button
             variant="contained"
             size="small"
+            onClick={() => dispatch(loginUser({ email: "testUser@test.com", password: "secret" }))}
             className="bg-primary text-lg font-normal capitalize"
           >
             demo app

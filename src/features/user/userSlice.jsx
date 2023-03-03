@@ -32,11 +32,7 @@ export const loginUser = createAsyncThunk("user/loginUser", async (user, thunkAP
 
 export const updateUser = createAsyncThunk("user/updateUser", async (user, thunkAPI) => {
   try {
-    const res = await customFetch.patch("/auth/updateUser", user, {
-      headers: {
-        authorization: `Bearer ${thunkAPI.getState().user.user.token} `,
-      },
-    });
+    const res = await customFetch.patch("/auth/updateUser", user);
     console.log(res.data, "res.data");
     return res.data;
   } catch (error) {
@@ -51,7 +47,7 @@ const userSlice = createSlice({
     logoutUser: (state) => {
       state.user = null;
       removeUserFromLocalStorage();
-      toast.success("logging out...");
+      toast.success("logged out");
     },
   },
   extraReducers: (builder) => {

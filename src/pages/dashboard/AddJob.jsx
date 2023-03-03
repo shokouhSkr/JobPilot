@@ -118,7 +118,7 @@ const AddJob = () => {
             className="mt-6 mb-5 p-3"
             disabled={isLoading}
           >
-            Submit
+            {isEditing ? "Edit" : "Submit"}
           </Button>
           <Button
             fullWidth
