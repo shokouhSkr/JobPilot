@@ -54,10 +54,10 @@ const jobSlice = createSlice({
       // delete job
       // we don't need this one in delete job case:
       // .addCase(deleteJob.pending, (state) => {})
-      .addCase(deleteJob.fulfilled, (action) => {
+      .addCase(deleteJob.fulfilled, (_, action) => {
         toast.success(action.payload);
       })
-      .addCase(deleteJob.rejected, (action) => {
+      .addCase(deleteJob.rejected, (_, action) => {
         toast.error(action.payload);
       })
 

@@ -1,9 +1,18 @@
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { showStats } from "../../features/allJobs/allJobsSlice";
 import { Wrapper } from "../../components";
 
 const Stats = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(showStats());
+  }, []);
+
   return (
     <Wrapper center>
-      <div className="bg-blue-900">stats</div>
+      <div>stats</div>
     </Wrapper>
   );
 };
