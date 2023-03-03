@@ -19,9 +19,8 @@ const JobsContainer = () => {
   return (
     <section>
       <h2>job info</h2>
-      <div className="bg-pink-200">
+      <div>
         {jobs.map((job) => {
-          console.log(job);
           return <Job key={job._id} {...job} />;
         })}
       </div>

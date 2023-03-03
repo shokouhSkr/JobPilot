@@ -45,6 +45,7 @@ const Sidebar = () => {
               <li key={id}>
                 <NavLink
                   to={path}
+                  onClick={() => dispatch(closeSidebar())}
                   className={({ isActive }) =>
                     `mb-1 flex items-center justify-start gap-4 rounded-lg px-10 py-4 text-lg transition-all duration-[400ms] ${
                       isActive ? "bg-primary pl-12" : "hover:bg-hover hover:pl-12"

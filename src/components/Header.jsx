@@ -43,8 +43,8 @@ const Header = () => {
         >
           <div className="flex items-center gap-2">
             <Avatar src="/broken-image.jpg" className="h-8 w-8 bg-primary" />
-            <span className="text-lg">{name}</span>
           </div>
+          <span className="text-lg">{name}</span>
         </Button>
         <Menu
           id="fade-menu"
