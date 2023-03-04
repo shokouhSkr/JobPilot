@@ -9,9 +9,9 @@ import JobsContainer from "./jobs/JobsContainer";
 import SearchContainer from "./search/SearchContainer";
 import Loading from "./UI/Loading";
 import StatsContainer from "./stats/StatsContainer";
-import ChartsContainer from "./chart/ChartsContainer";
-import AreaChart from "./chart/AreaChart";
-import BarChart from "./chart/BarChart";
+import ChartsContainer from "./charts/ChartsContainer";
+import AreaChart from "./charts/AreaChart";
+import BarChart from "./charts/BarChart";
 import StatItem from "./stats/StatItem";
 
 export {
