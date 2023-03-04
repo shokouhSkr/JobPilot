@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Logo } from "../components";
 import { NavLink } from "react-router-dom";
 import { Links } from "../utils/sidebarLinks";
