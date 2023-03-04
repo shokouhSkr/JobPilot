@@ -2,7 +2,7 @@ import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { deleteJob, setEditJob } from "../features/job/jobSlice";
+import { deleteJob, setEditJob } from "../../features/job/jobSlice";
 import moment from "moment";
 
 const Job = ({ _id, position, company, jobLocation, jobType, createdAt, status }) => {

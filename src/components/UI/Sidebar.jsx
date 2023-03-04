@@ -1,9 +1,9 @@
-import { Logo } from "../components";
+import { Logo } from "..";
 import { NavLink } from "react-router-dom";
-import { Links } from "../utils/sidebarLinks";
+import { Links } from "../../utils/sidebarLinks";
 import { VscClose } from "react-icons/vsc";
 import { useSelector, useDispatch } from "react-redux";
-import { closeSidebar } from "../features/sidebar/sidebarSlice";
+import { closeSidebar } from "../../features/sidebar/sidebarSlice";
 
 const Sidebar = () => {
   const { isSidebarOpen } = useSelector((store) => store.sidebar);

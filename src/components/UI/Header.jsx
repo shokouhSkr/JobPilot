@@ -3,8 +3,8 @@ import { GrMenu } from "react-icons/gr";
 import { Button, Menu, MenuItem, Fade, Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleSidebar } from "../features/sidebar/sidebarSlice";
-import { logoutUser } from "../features/user/userSlice";
+import { toggleSidebar } from "../../features/sidebar/sidebarSlice";
+import { logoutUser } from "../../features/user/userSlice";
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);

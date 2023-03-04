@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Job, Loading } from "../components";
-import { getAllJobs } from "../features/allJobs/allJobsSlice";
+import { Job, Loading } from "..";
+import { getAllJobs } from "../../features/allJobs/allJobsSlice";
 
 const JobsContainer = () => {
   const { isLoading, jobs } = useSelector((store) => store.allJobs);

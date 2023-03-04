@@ -1,16 +1,18 @@
-import Wrapper from "./Wrapper";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
-import Logo from "./Logo";
-import BasicSelect from "./BasicSelect";
-import Form from "./Form";
-import Job from "./Job";
-import JobsContainer from "./JobsContainer";
-import SearchContainer from "./SearchContainer";
-import Loading from "./Loading";
-import StatsContainer from "./StatsContainer";
-import ChartsContainer from "./ChartsContainer";
-import StatItem from "./StatItem";
+import Wrapper from "./UI/Wrapper";
+import Header from "./UI/Header";
+import Sidebar from "./UI/Sidebar";
+import Logo from "./UI/Logo";
+import BasicSelect from "./UI/BasicSelect";
+import Form from "./UI/Form";
+import Job from "./jobs/Job";
+import JobsContainer from "./jobs/JobsContainer";
+import SearchContainer from "./search/SearchContainer";
+import Loading from "./UI/Loading";
+import StatsContainer from "./stats/StatsContainer";
+import ChartsContainer from "./chart/ChartsContainer";
+import AreaChart from "./chart/AreaChart";
+import BarChart from "./chart/BarChart";
+import StatItem from "./stats/StatItem";
 
 export {
   Header,
@@ -26,4 +28,6 @@ export {
   StatsContainer,
   ChartsContainer,
   StatItem,
+  AreaChart,
+  BarChart,
 };

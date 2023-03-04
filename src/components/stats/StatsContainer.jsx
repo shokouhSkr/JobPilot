@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { StatItem } from "../components";
+import { StatItem } from "..";
 import { BsCalendar2Check } from "react-icons/bs";
 
 const StatsContainer = () => {
