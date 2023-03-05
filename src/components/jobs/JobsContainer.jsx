@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
+import { Pagination } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { Job, Loading } from "..";
 import { getAllJobs } from "../../features/allJobs/allJobsSlice";
 
 const JobsContainer = () => {
-  const { isLoading, jobs } = useSelector((store) => store.allJobs);
+  const { isLoading, jobs, numOfPages, totalJobs, page } = useSelector((store) => store.allJobs);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,12 +19,16 @@ const JobsContainer = () => {
 
   return (
     <section>
-      <h2>job info</h2>
+      <h2 className="font-bold">
+        {totalJobs} job{totalJobs > 1 && "s"} found
+      </h2>
       <div>
         {jobs.map((job) => {
           return <Job key={job._id} {...job} />;
         })}
       </div>
+
+      {numOfPages > 1 && <Pagination count={numOfPages} shape="rounded" />}
     </section>
   );
 };

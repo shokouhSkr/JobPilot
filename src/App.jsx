@@ -26,7 +26,7 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="*" element={<Error />} />
       </Routes>
-      <ToastContainer position="top-center" autoClose={2000} hideProgressBar theme="colored" />
+      <ToastContainer position="top-center" autoClose={1500} hideProgressBar theme="colored" />
     </Router>
   );
 }

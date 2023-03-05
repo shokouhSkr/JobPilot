@@ -13,9 +13,13 @@ const initialFiltersState = {
 const initialState = {
   isLoading: false,
   jobs: [],
+
+  /**********/
   totalJobs: 0,
   numOfPages: 1,
   page: 1,
+  /**********/
+
   stats: {},
   monthlyApplications: [],
   ...initialFiltersState,
@@ -26,7 +30,7 @@ export const getAllJobs = createAsyncThunk("allJobs/getJobs", async (_, thunkAPI
 
   try {
     const res = await customFetch.get(url);
-    console.log(res.data);
+    console.log("data: ", res.data);
     return res.data;
   } catch (error) {
     return thunkAPI.rejectWithValue("There was an error");
@@ -70,6 +74,8 @@ const allJobsSlice = createSlice({
       .addCase(getAllJobs.fulfilled, (state, action) => {
         state.isLoading = false;
         state.jobs = action.payload.jobs;
+        state.numOfPages = action.payload.numOfPages;
+        state.totalJobs = action.payload.totalJobs;
       })
       .addCase(getAllJobs.rejected, (state, action) => {
         state.isLoading = false;
