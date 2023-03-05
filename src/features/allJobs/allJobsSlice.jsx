@@ -51,6 +51,9 @@ const allJobsSlice = createSlice({
       const value = action.payload;
       state.page = value;
     },
+    clearAllJobsState: (state) => {
+      initialState;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -85,6 +88,12 @@ const allJobsSlice = createSlice({
   },
 });
 
-export const { showLoading, hideLoading, clearHandler, valuesHandler, changePage } =
-  allJobsSlice.actions;
+export const {
+  showLoading,
+  hideLoading,
+  clearHandler,
+  valuesHandler,
+  changePage,
+  clearAllJobsState,
+} = allJobsSlice.actions;
 export default allJobsSlice.reducer;

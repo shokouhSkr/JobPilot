@@ -4,7 +4,7 @@ import { Button, Menu, MenuItem, Fade, Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSidebar } from "../../features/sidebar/sidebarSlice";
-import { logoutUser } from "../../features/user/userSlice";
+import { clearStore } from "../../features/user/userSlice";
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -19,7 +19,7 @@ const Header = () => {
   };
 
   const handleClose = (e) => {
-    if (e.target.textContent === "Logout") dispatch(logoutUser());
+    if (e.target.textContent === "Logout") dispatch(clearStore());
     setAnchorEl(null);
   };
 
