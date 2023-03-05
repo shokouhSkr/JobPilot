@@ -1,16 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Pagination } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { Job, Loading } from "..";
-import { getAllJobs } from "../../features/allJobs/allJobsSlice";
+import { getAllJobs, changePage } from "../../features/allJobs/allJobsSlice";
 
 const JobsContainer = () => {
-  const { isLoading, jobs, numOfPages, totalJobs, page } = useSelector((store) => store.allJobs);
+  const { isLoading, jobs, numOfPages, totalJobs, page, search, searchStatus, searchType, sort } =
+    useSelector((store) => store.allJobs);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllJobs());
-  }, []);
+  }, [page, search, searchStatus, searchType, sort]);
 
   if (isLoading) return <Loading />;
 
@@ -28,7 +29,14 @@ const JobsContainer = () => {
         })}
       </div>
 
-      {numOfPages > 1 && <Pagination count={numOfPages} shape="rounded" />}
+      {numOfPages > 1 && (
+        <Pagination
+          count={numOfPages}
+          shape="rounded"
+          page={page}
+          onChange={(e, value) => dispatch(changePage(value))}
+        />
+      )}
     </section>
   );
 };

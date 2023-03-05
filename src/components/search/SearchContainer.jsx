@@ -14,6 +14,8 @@ const SearchContainer = () => {
     const name = e.target.name;
     const value = e.target.value;
 
+    if (isLoading) return;
+
     dispatch(valuesHandler({ name, value }));
   };
 
