@@ -16,13 +16,13 @@ const SearchContainer = () => {
 
   useEffect(() => {
     // construct query parameters string
-    const queryParams = new URLSearchParams({
-      search, // search: search(=all)
-      page,
+    let queryParams = new URLSearchParams({
       searchType,
       searchStatus,
-      sort,
+      sort, // sort: sort(=latest)
+      page,
     }).toString();
+    if (search.length > 0) queryParams = queryParams + `&search=${search}`;
 
     // update URL with query parameters
     navigate(`?${queryParams}`);
