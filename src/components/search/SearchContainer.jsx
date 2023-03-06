@@ -12,6 +12,7 @@ const SearchContainer = () => {
   const { statusOptions, jobTypeOptions } = useSelector((store) => store.job);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation(); // get the current URL location
 
   useEffect(() => {
     // construct query parameters string
@@ -26,6 +27,28 @@ const SearchContainer = () => {
     // update URL with query parameters
     navigate(`?${queryParams}`);
   }, [search, searchType, searchStatus, sort, page]);
+
+  useEffect(() => {
+    // extract query parameters from the URL
+    const searchParams = new URLSearchParams(location.search);
+
+    // check if each parameter exists and dispatch it to the store
+    if (searchParams.has("search")) {
+      dispatch(valuesHandler({ name: "search", value: searchParams.get("search") }));
+    }
+    if (searchParams.has("searchType")) {
+      dispatch(valuesHandler({ name: "searchType", value: searchParams.get("searchType") }));
+    }
+    if (searchParams.has("searchStatus")) {
+      dispatch(valuesHandler({ name: "searchStatus", value: searchParams.get("searchStatus") }));
+    }
+    if (searchParams.has("sort")) {
+      dispatch(valuesHandler({ name: "sort", value: searchParams.get("sort") }));
+    }
+    if (searchParams.has("page")) {
+      dispatch(valuesHandler({ name: "page", value: Number(searchParams.get("page")) }));
+    }
+  }, [location.search]);
 
   const searchHandler = (e) => {
     const name = e.target.name;
