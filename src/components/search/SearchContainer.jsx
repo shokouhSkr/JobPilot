@@ -1,14 +1,31 @@
+import { useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { BasicSelect } from "../../components";
 import { TextField, Button } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { clearHandler, valuesHandler } from "../../features/allJobs/allJobsSlice";
 
 const SearchContainer = () => {
-  const { isLoading, search, searchType, searchStatus, sort, sortOptions } = useSelector(
+  const { isLoading, search, searchType, searchStatus, sort, sortOptions, page } = useSelector(
     (store) => store.allJobs
   );
   const { statusOptions, jobTypeOptions } = useSelector((store) => store.job);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // construct query parameters string
+    const queryParams = new URLSearchParams({
+      search, // search: search(=all)
+      page,
+      searchType,
+      searchStatus,
+      sort,
+    }).toString();
+
+    // update URL with query parameters
+    navigate(`?${queryParams}`);
+  }, [search, searchType, searchStatus, sort, page]);
 
   const searchHandler = (e) => {
     const name = e.target.name;
@@ -19,9 +36,7 @@ const SearchContainer = () => {
     dispatch(valuesHandler({ name, value }));
   };
 
-  const clearFormHandler = () => {
-    dispatch(clearHandler());
-  };
+  const clearFormHandler = () => dispatch(clearHandler());
 
   return (
     <section className="mb-12">

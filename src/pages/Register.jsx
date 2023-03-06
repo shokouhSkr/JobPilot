@@ -34,17 +34,26 @@ const Register = () => {
 
     if (isMember) {
       dispatch(loginUser({ email, password }));
+      // localStorage.setItem("email", email);
       return;
     }
 
     dispatch(registerUser({ name, email, password }));
   };
 
+  // useEffect(() => {
+  //   const emailFromStorage = localStorage.getItem("email");
+  //   if (emailFromStorage) {
+  //     setValues({ ...values, email: emailFromStorage });
+  //   }
+  // }, []);
+
   useEffect(() => {
-    if (user)
+    if (user) {
       setTimeout(() => {
         navigate("/");
       }, 2000);
+    }
   }, [user]);
 
   return (
