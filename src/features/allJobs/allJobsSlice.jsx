@@ -8,6 +8,7 @@ const initialFiltersState = {
   searchType: "all",
   sort: "latest",
   sortOptions: ["latest", "oldest", "a-z", "z-a"],
+  page: 1,
 };
 
 const initialState = {
@@ -17,7 +18,7 @@ const initialState = {
   /**********/
   totalJobs: 0,
   numOfPages: 1,
-  page: 1,
+  // page: 1,
   /**********/
 
   stats: {},
