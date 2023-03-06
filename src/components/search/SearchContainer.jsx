@@ -14,40 +14,38 @@ const SearchContainer = () => {
   const navigate = useNavigate();
   const location = useLocation(); // get the current URL location
 
+  // Show query params in the URL
   useEffect(() => {
     // construct query parameters string
-    let queryParams = new URLSearchParams({
-      searchType,
-      searchStatus,
-      sort, // sort: sort(=latest)
-      page,
-    }).toString();
-    if (search.length > 0) queryParams = queryParams + `&search=${search}`;
+    const queryParams = new URLSearchParams(location.search);
+    // console.log("queryParams", queryParams); => {}
 
-    // update URL with query parameters
-    navigate(`?${queryParams}`);
-  }, [search, searchType, searchStatus, sort, page]);
+    // sort: sort(=latest), searchStatus: searchStatus(=all), ...
+    const paramsToCheck = { searchType, searchStatus, sort, search, page };
 
+    Object.entries(paramsToCheck).forEach(([key, value]) => {
+      if (value === undefined || value === "all" || value === "") queryParams.delete(key);
+      else queryParams.set(key, value);
+    });
+
+    const url = queryParams ? `${location.pathname}?${queryParams.toString()}` : location.pathname;
+    navigate(url, { replace: true });
+  }, [searchType, searchStatus, sort, page, search]);
+
+  // Reading query params from the URL and update data
   useEffect(() => {
+    const queryParams = ["search", "searchType", "searchStatus", "sort", "page"];
+
     // extract query parameters from the URL
     const searchParams = new URLSearchParams(location.search);
+    // console.log("searchParams", searchParams); => {}
 
-    // check if each parameter exists and dispatch it to the store
-    if (searchParams.has("search")) {
-      dispatch(valuesHandler({ name: "search", value: searchParams.get("search") }));
-    }
-    if (searchParams.has("searchType")) {
-      dispatch(valuesHandler({ name: "searchType", value: searchParams.get("searchType") }));
-    }
-    if (searchParams.has("searchStatus")) {
-      dispatch(valuesHandler({ name: "searchStatus", value: searchParams.get("searchStatus") }));
-    }
-    if (searchParams.has("sort")) {
-      dispatch(valuesHandler({ name: "sort", value: searchParams.get("sort") }));
-    }
-    if (searchParams.has("page")) {
-      dispatch(valuesHandler({ name: "page", value: Number(searchParams.get("page")) }));
-    }
+    queryParams.forEach((param) => {
+      const value = searchParams.get(param);
+      if (value) {
+        dispatch(valuesHandler({ name: param, value: param === "page" ? Number(value) : value }));
+      }
+    });
   }, [location.search]);
 
   const searchHandler = (e) => {
