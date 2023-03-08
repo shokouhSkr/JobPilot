@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, InputAdornment } from "@mui/material";
+import { HiOutlineLockClosed, HiOutlineMail, HiOutlineUser } from "react-icons/hi";
 import { Logo } from "../components";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -57,16 +58,16 @@ const Register = () => {
   }, [user]);
 
   return (
-    <div className="grid h-screen place-items-center bg-screen px-[5%] font-roboto text-main md:px-[7%]">
-      <form
-        onSubmit={submitHandler}
-        className="max-w-sm rounded-md border-t-[6px] border-main bg-white p-8 text-center shadow-md"
-      >
-        <Logo />
-        <h3 className="mb-10 text-3xl">{!values.isMember ? "Register" : "Login"}</h3>
+    <div className="grid h-screen place-items-center bg-screen px-[5%] font-roboto text-primaryTxt md:px-[7%]">
+      <form onSubmit={submitHandler} className="max-w-sm rounded-2xl bg-white p-8 shadow-md">
+        <Logo form />
+
+        <h3 className="mb-6 mt-12 px-[2%] text-3xl font-bold">
+          {!values.isMember ? "Register" : "Login"}
+        </h3>
 
         {/* inputs */}
-        <div className="mb-10 space-y-6 px-[2%]">
+        <div className="mb-10 space-y-4 px-[2%]">
           {/* name field */}
           {!values.isMember && (
             <TextField
@@ -76,25 +77,42 @@ const Register = () => {
               label="Name"
               type="name"
               size="small"
+              variant="standard"
               value={values.name}
               onChange={valueHandler}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <HiOutlineUser className="text-lg" />
+                  </InputAdornment>
+                ),
+              }}
             />
           )}
           {/* email field */}
           <TextField
             fullWidth
             id="outlined-email"
+            variant="standard"
             name="email"
             label="Email"
             type="email"
             size="small"
             value={values.email}
             onChange={valueHandler}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <HiOutlineMail className="text-lg" />
+                </InputAdornment>
+              ),
+            }}
           />
           {/* password field */}
           <TextField
             fullWidth
             id="outlined-password-input"
+            variant="standard"
             name="password"
             label="Password"
             type="password"
@@ -102,17 +120,24 @@ const Register = () => {
             size="small"
             value={values.password}
             onChange={valueHandler}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <HiOutlineLockClosed className="text-lg" />
+                </InputAdornment>
+              ),
+            }}
           />
         </div>
 
         {/* buttons */}
-        <div className="mb-6 flex flex-col gap-4 px-[2%]">
+        <div className="mb-12 flex flex-col gap-4 px-[2%]">
           <Button
             disabled={isLoading}
             variant="contained"
             size="small"
             onClick={submitHandler}
-            className="text-lg font-normal capitalize"
+            className="rounded-full bg-gradient-to-r from-primaryBg via-primaryBg to-secondaryBg py-2 text-lg font-normal capitalize"
           >
             {values.isMember ? "Login" : "Submit"}
           </Button>
@@ -120,16 +145,16 @@ const Register = () => {
             variant="contained"
             size="small"
             onClick={() => dispatch(loginUser({ email: "testUser@test.com", password: "secret" }))}
-            className="bg-primary text-lg font-normal capitalize"
+            className="rounded-full bg-gradient-to-r from-primaryBg via-primaryBg to-secondaryBg py-2 text-lg font-normal capitalize"
           >
             demo app
           </Button>
         </div>
 
-        <p>
-          {values.isMember ? "Not a member yet?" : "Already a member?"}
-          <button type="button" onClick={toggleMember} className="ml-1 text-primary">
-            {values.isMember ? "Register" : "Login"}
+        <p className="px-[2%] text-secondaryTxt">
+          {values.isMember ? "Don't have an account?" : "Already have an account?"}
+          <button type="button" onClick={toggleMember} className="ml-1 text-primaryTxt">
+            {values.isMember ? "Sign Up" : "Sign In"}
           </button>
         </p>
       </form>

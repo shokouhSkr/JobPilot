@@ -5,14 +5,14 @@ import { Logo } from "../components";
 
 const Landing = () => {
   return (
-    <main className="grid h-screen grid-cols-2 grid-rows-[100px_minmax(650px,_1fr)] gap-x-8 overflow-hidden bg-screen px-[5%] font-roboto text-main md:px-[7%]">
+    <main className="grid h-screen grid-cols-2 grid-rows-[100px_minmax(650px,_1fr)] gap-x-8 overflow-hidden bg-screen px-[5%] font-roboto text-primaryTxt md:px-[7%]">
       <nav className="col-span-full mt-2 flex items-center justify-start pt-6">
         <Logo />
       </nav>
 
       <div className="col-span-full flex h-[calc(100vh-100px)] flex-col justify-center md:col-span-1">
         <h1 className="mb-8 text-5xl font-extrabold capitalize leading-snug">
-          Job <span className="text-primary">tracking</span> app
+          Job <span className="text-primaryBg">tracking</span> app
         </h1>
         <p className="mb-6 leading-relaxed">
           Job hunting can be a challenging and overwhelming experience, especially when you're
@@ -20,7 +20,10 @@ const Landing = () => {
           assist you in the process.
         </p>
         <div className="inline">
-          <Button variant="contained" className="rounded-md bg-primary text-lg">
+          <Button
+            variant="contained"
+            className="rounded-full bg-gradient-to-r from-primaryBg via-primaryBg to-secondaryBg py-2 px-6 text-lg"
+          >
             <Link to="/register">Login/Register</Link>
           </Button>
         </div>
