@@ -16,10 +16,11 @@ module.exports = {
     extend: {
       colors: {
         screen: "#f5f7f8",
-        main: "#263238",
-        primary: "#6d8692",
+        main: "#4d3757",
+        primary: "#5932b6",
+        secondary: "#F5B661",
         hover: "#ffffff1a",
-        form: "#fff",
+        // form: "#fff",
       },
     },
     plugins: [],

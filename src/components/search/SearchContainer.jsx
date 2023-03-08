@@ -17,8 +17,7 @@ const SearchContainer = () => {
   // Show query params in the URL
   useEffect(() => {
     // construct query parameters string
-    const queryParams = new URLSearchParams(location.search);
-    // console.log("queryParams", queryParams); => {}
+    const queryParams = new URLSearchParams(location.search); // => {}
 
     // sort: sort(=latest), searchStatus: searchStatus(=all), ...
     const paramsToCheck = { searchType, searchStatus, sort, search, page };
@@ -37,8 +36,7 @@ const SearchContainer = () => {
     const queryParams = ["search", "searchType", "searchStatus", "sort", "page"];
 
     // extract query parameters from the URL
-    const searchParams = new URLSearchParams(location.search);
-    // console.log("searchParams", searchParams); => {}
+    const searchParams = new URLSearchParams(location.search); // => {}
 
     queryParams.forEach((param) => {
       const value = searchParams.get(param);

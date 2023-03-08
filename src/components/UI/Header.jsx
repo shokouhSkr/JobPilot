@@ -25,6 +25,7 @@ const Header = () => {
 
   return (
     <header className="mb-14 flex h-16 items-end justify-end px-1 text-2xl text-main md:ml-80">
+      {/* <p>Good morning, {name}</p> */}
       <button
         type="button"
         onClick={() => dispatch(toggleSidebar())}
@@ -32,7 +33,6 @@ const Header = () => {
       >
         <GrMenu />
       </button>
-      <p className="w-full px-3 pl-8 text-center md:pl-14">Dashboard</p>
       <div>
         <Button
           id="fade-button"

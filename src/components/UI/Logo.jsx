@@ -9,7 +9,7 @@ const Logo = ({ sidebar }) => {
         alt="JobPilot logo"
         className={`rounded-lg ${sidebar ? "h-12 w-12 lg:h-14 lg:w-14" : "h-14 w-14"}`}
       />
-      <span className="ml-3 text-2xl font-extrabold tracking-widest">JobPilot</span>
+      <span className="ml-3 text-3xl font-extrabold tracking-widest">JobPilot</span>
     </div>
   );
 };
