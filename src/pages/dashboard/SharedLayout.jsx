@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 const SharedLayout = () => {
   return (
     <main className="relative h-screen bg-[#ebedee] font-roboto text-screen">
-      <Header />
+      {/* <Header /> */}
       <Sidebar />
       <Outlet />
     </main>

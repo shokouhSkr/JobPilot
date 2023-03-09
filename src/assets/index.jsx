@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png";
+import logo from "../assets/logo3.png";
 import Jobhunting from "./Jobhunting";
 import NotFound from "./notFound";
 

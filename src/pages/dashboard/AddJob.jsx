@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Wrapper, BasicSelect } from "../../components";
+import { Wrapper, BasicSelect, Header } from "../../components";
 import { TextField, Button } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
@@ -56,82 +56,85 @@ const AddJob = () => {
   }, []);
 
   return (
-    <Wrapper>
-      <form
-        onSubmit={submitHandler}
-        className="relative rounded-lg bg-form p-4 pt-8 text-main shadow-md"
-      >
-        <div className="absolute -top-6 left-0 right-0 z-30 mx-8 rounded-lg bg-main p-6 text-form">
-          <h1 className="text-center text-lg">{isEditing ? "Edit Job" : "Add Job"}</h1>
-        </div>
+    <>
+      <Header page="Add Job" />
+      <Wrapper>
+        <form
+          onSubmit={submitHandler}
+          className="bg-form text-main relative rounded-lg p-4 pt-8 shadow-md"
+        >
+          <div className="bg-main text-form absolute -top-6 left-0 right-0 z-30 mx-8 rounded-lg p-6">
+            <h1 className="text-center text-lg">{isEditing ? "Edit Job" : "Add Job"}</h1>
+          </div>
 
-        <div className="mt-10 grid grid-cols-1 grid-rows-4 gap-y-5 md:grid-cols-2 md:grid-rows-2 md:gap-8 md:p-4">
-          <TextField
-            fullWidth
-            id="outlined-position"
-            name="position"
-            label="Position"
-            type="text"
-            value={position}
-            onChange={valueHandler}
-          />
-          <TextField
-            fullWidth
-            id="outlined-company"
-            name="company"
-            label="Company"
-            type="text"
-            value={company}
-            onChange={valueHandler}
-          />
-          <TextField
-            fullWidth
-            id="outlined-location"
-            name="jobLocation"
-            label="Location"
-            type="text"
-            value={jobLocation}
-            onChange={valueHandler}
-          />
-          <BasicSelect
-            name="status"
-            value={status}
-            label="Status"
-            options={statusOptions}
-            onChange={valueHandler}
-          />
-          <BasicSelect
-            name="jobType"
-            value={jobType}
-            label="Job Type"
-            options={jobTypeOptions}
-            onChange={valueHandler}
-          />
-        </div>
+          <div className="mt-10 grid grid-cols-1 grid-rows-4 gap-y-5 md:grid-cols-2 md:grid-rows-2 md:gap-8 md:p-4">
+            <TextField
+              fullWidth
+              id="outlined-position"
+              name="position"
+              label="Position"
+              type="text"
+              value={position}
+              onChange={valueHandler}
+            />
+            <TextField
+              fullWidth
+              id="outlined-company"
+              name="company"
+              label="Company"
+              type="text"
+              value={company}
+              onChange={valueHandler}
+            />
+            <TextField
+              fullWidth
+              id="outlined-location"
+              name="jobLocation"
+              label="Location"
+              type="text"
+              value={jobLocation}
+              onChange={valueHandler}
+            />
+            <BasicSelect
+              name="status"
+              value={status}
+              label="Status"
+              options={statusOptions}
+              onChange={valueHandler}
+            />
+            <BasicSelect
+              name="jobType"
+              value={jobType}
+              label="Job Type"
+              options={jobTypeOptions}
+              onChange={valueHandler}
+            />
+          </div>
 
-        <div className="flex gap-2 px-4">
-          <Button
-            fullWidth
-            variant="contained"
-            size="large"
-            onClick={submitHandler}
-            className="mt-6 mb-5 p-3"
-            disabled={isLoading}
-          >
-            {isEditing ? "Edit" : "Submit"}
-          </Button>
-          <Button
-            fullWidth
-            variant="contained"
-            size="large"
-            onClick={clearHandler}
-            className="mt-6 mb-5 p-3"
-          >
-            Clear
-          </Button>
-        </div>
-      </form>
-    </Wrapper>
+          <div className="flex gap-2 px-4">
+            <Button
+              fullWidth
+              variant="contained"
+              size="large"
+              onClick={submitHandler}
+              className="mt-6 mb-5 p-3"
+              disabled={isLoading}
+            >
+              {isEditing ? "Edit" : "Submit"}
+            </Button>
+            <Button
+              fullWidth
+              variant="contained"
+              size="large"
+              onClick={clearHandler}
+              className="mt-6 mb-5 p-3"
+            >
+              Clear
+            </Button>
+          </div>
+        </form>
+      </Wrapper>
+    </>
   );
 };
 

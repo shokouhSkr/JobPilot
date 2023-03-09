@@ -5,7 +5,7 @@ const Logo = ({ sidebar, form }) => {
   return (
     <div
       className={`flex items-center ${form || sidebar ? "justify-start" : "justify-center"} ${
-        sidebar ? "mb-0 p-6" : "mb-6"
+        sidebar ? "mb-0 p-8" : "mb-6"
       }`}
     >
       <img

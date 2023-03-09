@@ -1,5 +1,5 @@
 import Wrapper from "./UI/Wrapper";
-import Header from "./UI/Header";
+import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
 import Logo from "./UI/Logo";
 import BasicSelect from "./UI/BasicSelect";

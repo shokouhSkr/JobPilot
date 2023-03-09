@@ -14,16 +14,16 @@ const Logout = () => {
       <img src={AvatarPic} alt="Avatar" className="w-24" />
 
       <div>
-        <span className="mb-0.5 block text-sm text-secondaryTxt">Morning</span>
+        <span className="block text-sm text-secondaryTxt">Morning</span>
         <span className="font-semibold">{name}</span>
       </div>
 
       <button
         type="button"
         onClick={() => dispatch(clearStore())}
-        className="ml-1 p-2 text-xl font-extrabold text-secondaryTxt"
+        className="ml-1 translate-x-4 p-2 text-xl font-extrabold text-secondaryTxt"
       >
-        <FiLogOut />
+        <FiLogOut strokeWidth="1" />
       </button>
     </div>
   );

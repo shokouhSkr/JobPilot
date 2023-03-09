@@ -1,7 +1,7 @@
 import { Logo, Logout, SidebarLink } from "..";
 import { Links } from "../../utils/sidebarLinks";
 import { useSelector, useDispatch } from "react-redux";
-import { HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
+import { closeSidebar } from "../../features/sidebar/sidebarSlice";
 
 const Sidebar = () => {
   const { isSidebarOpen } = useSelector((store) => store.sidebar);
@@ -21,11 +21,11 @@ const Sidebar = () => {
           isSidebarOpen ? "translate-x-0" : "-translate-x-80"
         } fixed left-0 top-0 bottom-0 z-50 w-64 bg-screen text-primaryTxt transition-all duration-300 md:translate-x-0`}
       >
-        <div className="p-5">
+        <div className="p-4">
           <Logo sidebar />
         </div>
 
-        <ul className="relative px-4">
+        <ul className="relative px-6">
           {Links.map((link) => (
             <SidebarLink key={link.id} {...link} />
           ))}

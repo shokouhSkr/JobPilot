@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { showStats } from "../../features/allJobs/allJobsSlice";
-import { ChartsContainer, Wrapper, Loading } from "../../components";
+import { ChartsContainer, Wrapper, Loading, Header } from "../../components";
 import { StatsContainer } from "../../components";
 
 const Stats = () => {
@@ -15,10 +15,13 @@ const Stats = () => {
   if (isLoading) return <Loading />;
 
   return (
-    <Wrapper>
-      <StatsContainer />
-      {monthlyApplications.length > 0 && <ChartsContainer />}
-    </Wrapper>
+    <>
+      <Header page="Stats" />
+      <Wrapper>
+        <StatsContainer />
+        {monthlyApplications.length > 0 && <ChartsContainer />}
+      </Wrapper>
+    </>
   );
 };
 

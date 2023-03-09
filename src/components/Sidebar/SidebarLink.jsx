@@ -31,7 +31,7 @@ const SidebarLink = ({ title, path, icon }) => {
         <span
           className={`${
             location.pathname === path ? "block" : "hidden"
-          } absolute right-8 h-[7px] w-[7px] rounded-full bg-primaryBg`}
+          } absolute right-4 h-[7px] w-[7px] rounded-full bg-primaryBg last:h-[7.2px]`}
         ></span>
       </NavLink>
     </li>
