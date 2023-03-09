@@ -13,19 +13,19 @@ export const Links = [
   {
     id: "3edk3434434fkfke",
     title: "All Jobs",
-    path: "all-jobs",
+    path: "/all-jobs",
     icon: <MdQueryStats />,
   },
   {
     id: "3edkig9i9ikkikui",
     title: "Add Job",
-    path: "add-job",
+    path: "/add-job",
     icon: <AiOutlineForm />,
   },
   {
     id: "shnmmjyyuiuifkfke",
     title: "Profile",
-    path: "profile",
+    path: "/profile",
     icon: <CgProfile />,
   },
 ];

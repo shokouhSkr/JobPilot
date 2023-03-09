@@ -22,7 +22,7 @@ const Landing = () => {
         <div className="inline">
           <Button
             variant="contained"
-            className="rounded-full bg-gradient-to-r from-primaryBg via-primaryBg to-secondaryBg py-2 px-6 text-lg"
+            className="rounded-xl bg-gradient-to-r from-primaryBg via-primaryBg to-secondaryBg py-2 px-6 text-lg"
           >
             <Link to="/register">Login/Register</Link>
           </Button>

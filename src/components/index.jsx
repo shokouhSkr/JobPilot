@@ -1,6 +1,6 @@
 import Wrapper from "./UI/Wrapper";
 import Header from "./UI/Header";
-import Sidebar from "./UI/Sidebar";
+import Sidebar from "./Sidebar/Sidebar";
 import Logo from "./UI/Logo";
 import BasicSelect from "./UI/BasicSelect";
 import Form from "./UI/Form";
@@ -13,6 +13,8 @@ import ChartsContainer from "./charts/ChartsContainer";
 import AreaChart from "./charts/AreaChart";
 import BarChart from "./charts/BarChart";
 import StatItem from "./stats/StatItem";
+import Logout from "./Sidebar/Logout";
+import SidebarLink from "./Sidebar/SidebarLink";
 
 export {
   Header,
@@ -30,4 +32,6 @@ export {
   StatItem,
   AreaChart,
   BarChart,
+  Logout,
+  SidebarLink,
 };

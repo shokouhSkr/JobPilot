@@ -10,18 +10,20 @@ module.exports = {
       lg: "1240px",
       xl: "1440px",
     },
+    colors: {
+      white: "#fcfbfc",
+    },
     fontFamily: {
       roboto: ["Roboto", "sans-serif"],
     },
     extend: {
       colors: {
-        screen: "#f5f7f8",
+        screen: "#f3f5f7",
         primaryTxt: "#4d3757",
         secondaryTxt: "#c2b2b1",
         primaryBg: "#5932b6",
         secondaryBg: "#F5B661",
         hover: "#ffffff1a",
-        // form: "#fff",
       },
     },
     plugins: [],

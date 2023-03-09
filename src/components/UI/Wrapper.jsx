@@ -5,7 +5,7 @@ const Wrapper = ({ center, children }) => {
     <main
       className={`${
         center ? "flex items-center justify-center md:justify-start" : ""
-      } mt-8 h-[calc(100vh-150px)] px-6 text-main md:ml-[19rem]`}
+      } text-main mt-8 h-[calc(100vh-150px)] px-6 md:ml-64`}
     >
       {children}
     </main>

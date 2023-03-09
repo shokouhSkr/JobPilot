@@ -4,16 +4,22 @@ import { logo } from "../../assets";
 const Logo = ({ sidebar, form }) => {
   return (
     <div
-      className={`flex items-center ${form ? "justify-start" : "justify-center"} ${
-        sidebar ? "mb-0" : "mb-6"
+      className={`flex items-center ${form || sidebar ? "justify-start" : "justify-center"} ${
+        sidebar ? "mb-0 p-6" : "mb-6"
       }`}
     >
       <img
         src={logo}
         alt="JobPilot logo"
-        className={`rounded-xl ${sidebar ? "h-12 w-12 lg:h-14 lg:w-14" : "h-14 w-14"}`}
+        className={`${sidebar ? "h-10 w-10 rounded-lg" : "h-14 w-14 rounded-xl"}`}
       />
-      <span className="ml-3 text-3xl font-extrabold tracking-widest text-primaryTxt">JobPilot</span>
+      <span
+        className={`ml-3 font-extrabold tracking-widest text-primaryTxt ${
+          sidebar ? "text-xl" : "text-3xl"
+        }`}
+      >
+        JobPilot
+      </span>
     </div>
   );
 };

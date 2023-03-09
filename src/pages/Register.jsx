@@ -133,19 +133,20 @@ const Register = () => {
         {/* buttons */}
         <div className="mb-12 flex flex-col gap-4 px-[2%]">
           <Button
-            disabled={isLoading}
             variant="contained"
+            disabled={isLoading}
             size="small"
             onClick={submitHandler}
-            className="rounded-full bg-gradient-to-r from-primaryBg via-primaryBg to-secondaryBg py-2 text-lg font-normal capitalize"
+            className="rounded-xl bg-gradient-to-r from-primaryBg via-primaryBg to-secondaryBg py-2 text-lg font-normal capitalize"
           >
             {values.isMember ? "Login" : "Submit"}
           </Button>
           <Button
             variant="contained"
+            disabled={isLoading}
             size="small"
             onClick={() => dispatch(loginUser({ email: "testUser@test.com", password: "secret" }))}
-            className="rounded-full bg-gradient-to-r from-primaryBg via-primaryBg to-secondaryBg py-2 text-lg font-normal capitalize"
+            className="rounded-xl bg-gradient-to-r from-primaryBg via-primaryBg to-secondaryBg py-2 text-lg font-normal capitalize"
           >
             demo app
           </Button>
