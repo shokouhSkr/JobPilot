@@ -7,12 +7,13 @@ const ChartsContainer = () => {
   const { monthlyApplications: data } = useSelector((store) => store.allJobs);
 
   return (
-    <section>
-      <h1>Monthly Applications</h1>
-      <button className="text-sm text-blue-500" onClick={() => setBarChart(!barChart)}>
-        {barChart ? "Bar Chart" : "Area Chart"}
-      </button>
-
+    <section className="text-primaryTxt">
+      <div className="flex flex-col items-center justify-center">
+        <h1 className="mb-2 text-[22px]">Monthly Applications</h1>
+        <button className="text-lg text-secondaryTxt" onClick={() => setBarChart(!barChart)}>
+          {barChart ? "Bar Chart" : "Area Chart"}
+        </button>
+      </div>
       {barChart ? <AreaChart data={data} /> : <BarChart data={data} />}
     </section>
   );

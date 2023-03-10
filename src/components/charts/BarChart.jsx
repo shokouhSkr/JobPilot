@@ -1,19 +1,9 @@
-import {
-  BarChart,
-  Bar,
-  Cell,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
 const BarChartComponent = ({ data }) => {
   return (
     <ResponsiveContainer width="100%" height={300}>
-      <BarChart data={data} margin={{ top: 50, right: 50 }}>
+      <BarChart data={data} margin={{ top: 50, left: -40 }}>
         <CartesianGrid strokeDasharray="5 5" />
         <XAxis dataKey="date" />
         <YAxis allowDecimals={false} />
