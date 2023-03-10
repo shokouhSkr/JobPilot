@@ -58,57 +58,49 @@ const SearchContainer = () => {
   const clearFormHandler = () => dispatch(clearHandler());
 
   return (
-    <section className="mb-12">
-      <form className="relative rounded-lg bg-form p-4 pt-8 text-main shadow-md">
-        <div className="absolute -top-6 left-0 right-0 z-30 mx-8 rounded-lg bg-main p-6 text-form">
-          <h1 className="text-center text-lg">Search</h1>
-        </div>
-
-        <div className="mt-10 grid grid-cols-1 grid-rows-4 gap-y-5 md:grid-cols-2 md:grid-rows-2 md:gap-8 md:p-4">
-          <TextField
-            fullWidth
-            id="outlined-search"
-            name="search"
-            label="Search"
-            type="search"
-            value={search}
-            onChange={searchHandler}
-          />
-          <BasicSelect
-            name="searchStatus"
-            value={searchStatus}
-            label="Status"
-            options={["all", ...statusOptions]}
-            onChange={searchHandler}
-          />
-          <BasicSelect
-            name="searchType"
-            value={searchType}
-            label="Type"
-            options={["all", ...jobTypeOptions]}
-            onChange={searchHandler}
-          />
-          <BasicSelect
-            name="sort"
-            value={sort}
-            label="Sort"
-            options={sortOptions}
-            onChange={searchHandler}
-          />
-        </div>
-        <div className="px-4">
-          <Button
-            fullWidth
-            variant="contained"
-            size="large"
-            onClick={clearFormHandler}
-            className="mt-6 mb-5 bg-red-200 p-3 text-red-400"
-          >
-            Clear Filters
-          </Button>
-        </div>
-      </form>
-    </section>
+    <form className="relative mb-12 rounded-lg bg-screen p-4 text-primaryTxt shadow-md">
+      <div className="grid grid-cols-1 grid-rows-4 gap-y-5 sm:grid-cols-2 sm:grid-rows-2 sm:gap-6 sm:p-4 md:mt-5">
+        <TextField
+          fullWidth
+          id="outlined-search"
+          name="search"
+          label="Search"
+          type="search"
+          value={search}
+          onChange={searchHandler}
+        />
+        <BasicSelect
+          name="searchStatus"
+          value={searchStatus}
+          label="Status"
+          options={["all", ...statusOptions]}
+          onChange={searchHandler}
+        />
+        <BasicSelect
+          name="searchType"
+          value={searchType}
+          label="Type"
+          options={["all", ...jobTypeOptions]}
+          onChange={searchHandler}
+        />
+        <BasicSelect
+          name="sort"
+          value={sort}
+          label="Sort"
+          options={sortOptions}
+          onChange={searchHandler}
+        />
+        <Button
+          fullWidth
+          variant="contained"
+          size="large"
+          onClick={clearFormHandler}
+          className="py-3 text-lg md:mb-4"
+        >
+          Clear Filters
+        </Button>
+      </div>
+    </form>
   );
 };
 

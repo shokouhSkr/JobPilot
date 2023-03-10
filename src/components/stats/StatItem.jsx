@@ -7,7 +7,7 @@ const StatItem = ({ title, icon, count }) => {
     >
       <div className="mb-2 flex items-center justify-between">
         <span className="text-5xl">{count}</span>
-        <span className="grid place-content-center rounded-md bg-[#f9e3c6] p-2 text-4xl text-secondaryBg   ">
+        <span className="grid place-content-center rounded-md bg-[#f9e3c6] p-2 text-4xl text-secondaryBg">
           {icon}
         </span>
       </div>

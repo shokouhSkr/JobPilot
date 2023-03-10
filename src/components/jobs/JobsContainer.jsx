@@ -20,23 +20,26 @@ const JobsContainer = () => {
 
   return (
     <section>
-      <h2 className="font-bold">
+      <h2 className="mb-4 px-1 text-xl font-bold text-primaryTxt">
         {totalJobs} job{totalJobs > 1 && "s"} found
       </h2>
-      <div>
+
+      <div className="grid-cols-2 gap-4 lg:grid">
         {jobs.map((job) => {
           return <Job key={job._id} {...job} />;
         })}
       </div>
 
-      {numOfPages > 1 && (
-        <Pagination
-          count={numOfPages}
-          shape="rounded"
-          page={page}
-          onChange={(e, value) => dispatch(changePage(value))}
-        />
-      )}
+      <div className="flex justify-end ">
+        {numOfPages > 1 && (
+          <Pagination
+            count={numOfPages}
+            shape="rounded"
+            page={page}
+            onChange={(e, value) => dispatch(changePage(value))}
+          />
+        )}
+      </div>
     </section>
   );
 };
