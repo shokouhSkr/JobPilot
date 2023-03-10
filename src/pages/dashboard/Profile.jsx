@@ -39,12 +39,8 @@ const Profile = () => {
       <Header page="Profile" />
 
       <Wrapper>
-        <form onSubmit={submitHandler} className="relative rounded-lg p-4 pt-8 shadow-md">
-          <div className="bg-main text-form absolute -top-6 left-0 right-0 z-30 mx-8 rounded-lg p-6">
-            <h1 className="text-center text-lg">Profile</h1>
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 grid-rows-4 gap-y-5 md:grid-cols-2 md:grid-rows-2 md:gap-8 md:p-4">
+        <form className="relative rounded-lg bg-screen p-4 text-primaryTxt shadow-md">
+          <div className="grid grid-cols-1 grid-rows-4 gap-y-5 sm:grid-cols-2 sm:grid-rows-2 sm:gap-6 sm:p-4 md:mt-5">
             <TextField
               fullWidth
               id="outlined-name"
@@ -81,15 +77,13 @@ const Profile = () => {
               value={userData.location}
               onChange={valueHandler}
             />
-          </div>
-          <div className="px-4">
             <Button
               fullWidth
+              disabled={isLoading}
               variant="contained"
               size="large"
               onClick={submitHandler}
-              className="mt-6 mb-5 p-3"
-              disabled={isLoading}
+              className="py-3 text-lg font-normal md:mb-4"
             >
               Save Changes
             </Button>

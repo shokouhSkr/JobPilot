@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 const SharedLayout = () => {
   return (
-    <main className="relative bg-[#ebedee] font-roboto text-screen">
+    <main className="relative bg-[#ebedee] font-roboto">
       <Outlet />
       <Sidebar />
     </main>

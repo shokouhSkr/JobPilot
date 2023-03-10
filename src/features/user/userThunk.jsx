@@ -1,6 +1,7 @@
 import customFetch from "../../utils/axios";
 import { clearAllJobsState } from "../allJobs/allJobsSlice";
 import { clearInputs } from "../job/jobSlice";
+import { toggleSidebar } from "../sidebar/sidebarSlice";
 import { logoutUser } from "./userSlice";
 
 export const registerUserThunk = async (user, thunkAPI) => {
@@ -36,6 +37,7 @@ export const clearStoreThunk = async (message, thunkAPI) => {
     thunkAPI.dispatch(logoutUser(message));
     thunkAPI.dispatch(clearAllJobsState());
     thunkAPI.dispatch(clearInputs());
+    thunkAPI.dispatch(toggleSidebar());
 
     return Promise.resolve();
   } catch (error) {

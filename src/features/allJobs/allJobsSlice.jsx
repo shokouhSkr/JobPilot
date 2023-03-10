@@ -14,13 +14,8 @@ const initialFiltersState = {
 const initialState = {
   isLoading: false,
   jobs: [],
-
-  /**********/
   totalJobs: 0,
   numOfPages: 1,
-  // page: 1,
-  /**********/
-
   stats: {},
   monthlyApplications: [],
   ...initialFiltersState,
@@ -52,7 +47,7 @@ const allJobsSlice = createSlice({
       const value = action.payload;
       state.page = value;
     },
-    clearAllJobsState: (state) => {
+    clearAllJobsState: () => {
       initialState;
     },
   },

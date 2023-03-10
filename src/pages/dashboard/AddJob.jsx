@@ -111,7 +111,7 @@ const AddJob = () => {
               variant="contained"
               size="large"
               onClick={submitHandler}
-              className="p-3"
+              className="p-3 text-lg font-normal"
               disabled={isLoading}
             >
               {isEditing ? "Edit" : "Submit"}
@@ -121,7 +121,7 @@ const AddJob = () => {
               variant="contained"
               size="large"
               onClick={clearHandler}
-              className="p-3"
+              className="p-3 text-lg font-normal"
             >
               Clear
             </Button>

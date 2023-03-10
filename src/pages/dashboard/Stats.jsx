@@ -12,18 +12,11 @@ const Stats = () => {
     dispatch(showStats());
   }, []);
 
-  // if (isLoading)
-  //   return (
-  //     <Wrapper>
-  //       <Loading />;
-  //     </Wrapper>
-  //   );
-
   return (
     <>
       <Header page="Stats" />
 
-      <Wrapper>
+      <Wrapper fullHight>
         <StatsContainer />
         {monthlyApplications.length > 0 && <ChartsContainer />}
       </Wrapper>

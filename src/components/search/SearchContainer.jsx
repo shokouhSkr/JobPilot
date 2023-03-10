@@ -95,7 +95,7 @@ const SearchContainer = () => {
           variant="contained"
           size="large"
           onClick={clearFormHandler}
-          className="py-3 text-lg md:mb-4"
+          className="py-3 text-lg font-normal md:mb-4"
         >
           Clear Filters
         </Button>

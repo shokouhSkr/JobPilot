@@ -20,7 +20,7 @@ const SidebarLink = ({ title, path, icon }) => {
       >
         <span
           className={`${
-            location.pathname === path ? "text-primaryBg " : "text-secondaryTxt"
+            location.pathname === path ? "text-primaryBg" : "text-secondaryTxt"
           } transition-all duration-[400ms]`}
         >
           {icon}
