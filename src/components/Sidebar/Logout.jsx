@@ -2,6 +2,7 @@ import { FiLogOut } from "react-icons/fi";
 import AvatarPic from "/src/assets/femail-avatar.png";
 import { useDispatch, useSelector } from "react-redux";
 import { clearStore } from "../../features/user/userSlice";
+import { period } from "../../utils/period";
 
 const Logout = () => {
   const {
@@ -14,7 +15,7 @@ const Logout = () => {
       <img src={AvatarPic} alt="Avatar" className="w-24" />
 
       <div>
-        <span className="block text-sm text-secondaryTxt">Morning</span>
+        <span className="block text-sm text-secondaryTxt">{period()}</span>
         <span className="font-semibold">{name}</span>
       </div>
 
