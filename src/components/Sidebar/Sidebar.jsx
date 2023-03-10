@@ -19,7 +19,7 @@ const Sidebar = () => {
       <aside
         className={`${
           isSidebarOpen ? "translate-x-0" : "-translate-x-80"
-        } fixed left-0 top-0 bottom-0 z-50 w-64 bg-screen text-primaryTxt transition-all duration-300 md:translate-x-0`}
+        } fixed left-0 top-0 bottom-0 z-50 w-64 bg-screen text-primaryTxt shadow-lg transition-all duration-300 md:translate-x-0`}
       >
         <div className="p-4">
           <Logo sidebar />

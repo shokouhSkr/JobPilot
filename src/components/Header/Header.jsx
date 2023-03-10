@@ -12,7 +12,7 @@ const Header = ({ page }) => {
   const dispatch = useDispatch();
 
   return (
-    <header className="flex items-center justify-between p-10 md:ml-64 md:p-12">
+    <header className="flex items-center justify-between px-6 py-8 sm:p-12 md:ml-64">
       <div>
         <h1 className="mb-1 text-2xl font-semibold text-primaryTxt">{page}</h1>
         <p className="text-sm text-secondaryTxt">Hello {name}, Welcome back!</p>

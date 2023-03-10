@@ -7,7 +7,7 @@ const ChartsContainer = () => {
   const { monthlyApplications: data } = useSelector((store) => store.allJobs);
 
   return (
-    <section className="text-main">
+    <section>
       <h1>Monthly Applications</h1>
       <button className="text-sm text-blue-500" onClick={() => setBarChart(!barChart)}>
         {barChart ? "Bar Chart" : "Area Chart"}

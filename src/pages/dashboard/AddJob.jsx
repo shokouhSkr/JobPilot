@@ -58,6 +58,7 @@ const AddJob = () => {
   return (
     <>
       <Header page="Add Job" />
+
       <Wrapper>
         <form
           onSubmit={submitHandler}

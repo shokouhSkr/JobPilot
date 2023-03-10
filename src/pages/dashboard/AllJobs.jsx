@@ -4,6 +4,7 @@ const AllJobs = () => {
   return (
     <>
       <Header page="All Jobs" />
+
       <Wrapper>
         <SearchContainer />
         <JobsContainer />

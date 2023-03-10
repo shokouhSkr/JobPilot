@@ -37,11 +37,9 @@ const Profile = () => {
   return (
     <>
       <Header page="Profile" />
+
       <Wrapper>
-        <form
-          onSubmit={submitHandler}
-          className="bg-form text-main relative rounded-lg p-4 pt-8 shadow-md"
-        >
+        <form onSubmit={submitHandler} className="relative rounded-lg p-4 pt-8 shadow-md">
           <div className="bg-main text-form absolute -top-6 left-0 right-0 z-30 mx-8 rounded-lg p-6">
             <h1 className="text-center text-lg">Profile</h1>
           </div>
