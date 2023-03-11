@@ -15,7 +15,7 @@ const Stats = () => {
   if (isLoading)
     return (
       <Wrapper>
-        <Loading />
+        <Loading center />
       </Wrapper>
     );
 

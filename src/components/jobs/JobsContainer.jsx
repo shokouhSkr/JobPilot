@@ -17,7 +17,11 @@ const JobsContainer = () => {
   if (isLoading) return <Loading />;
 
   if (jobs.length === 0)
-    return <h1 className="grid h-[calc(100vh-150px)] place-items-center">No jobs to display...</h1>;
+    return (
+      <h1 className="mx-auto flex h-screen justify-center text-lg font-normal text-primaryTxt md:text-xl">
+        No jobs to display.
+      </h1>
+    );
 
   return (
     <section>
