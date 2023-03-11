@@ -58,8 +58,8 @@ const SearchContainer = () => {
   const clearFormHandler = () => dispatch(clearHandler());
 
   return (
-    <form className="relative mb-12 rounded-lg bg-screen p-4 text-primaryTxt shadow-md">
-      <div className="grid grid-cols-1 grid-rows-4 gap-y-5 sm:grid-cols-2 sm:grid-rows-2 sm:gap-6 sm:p-4 md:mt-5">
+    <form className="relative mb-12 rounded-lg bg-screen text-primaryTxt shadow-md sm:p-4">
+      <div className="grid grid-cols-1 grid-rows-4 gap-y-5 p-4 sm:grid-cols-2 sm:grid-rows-2 sm:gap-6">
         <TextField
           fullWidth
           id="outlined-search"
@@ -95,7 +95,7 @@ const SearchContainer = () => {
           variant="contained"
           size="large"
           onClick={clearFormHandler}
-          className="py-3 text-lg font-normal md:mb-4"
+          className="py-3 text-base font-normal xs:text-lg"
         >
           Clear Filters
         </Button>

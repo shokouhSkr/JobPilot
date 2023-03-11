@@ -20,7 +20,7 @@ const JobsContainer = () => {
 
   return (
     <section>
-      <h2 className="mb-4 px-1 text-xl font-bold text-primaryTxt">
+      <h2 className="mb-4 px-1 text-lg font-bold text-primaryTxt xs:text-xl">
         {totalJobs} job{totalJobs > 1 && "s"} found
       </h2>
 

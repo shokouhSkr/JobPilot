@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { StatItem } from "..";
-import { CiCircleCheck, CiCircleQuestion, CiCircleRemove } from "react-icons/ci";
+import { BsBug } from "react-icons/bs";
+import { RiQuestionMark } from "react-icons/ri";
+import { BsCalendar2Day } from "react-icons/bs";
 
 const StatsContainer = () => {
   const { stats } = useSelector((store) => store.allJobs);
@@ -9,19 +11,19 @@ const StatsContainer = () => {
     {
       id: "34dvfagogowfrxsxs",
       title: "Interviews Scheduled",
-      icon: <CiCircleCheck strokeWidth="0.5" />,
+      icon: <BsCalendar2Day />,
       count: stats.interview || 0,
     },
     {
       id: "34dvfagogowfrjbnb",
       title: "Pending Applications",
-      icon: <CiCircleQuestion strokeWidth="0.5" />,
+      icon: <RiQuestionMark strokeWidth="0.1" />,
       count: stats.pending || 0,
     },
     {
       id: "34dvfagogoploplon",
       title: "Jobs Declined",
-      icon: <CiCircleRemove strokeWidth="0.5" />,
+      icon: <BsBug />,
       count: stats.declined || 0,
     },
   ];

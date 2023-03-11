@@ -105,13 +105,13 @@ const AddJob = () => {
             />
           </div>
 
-          <div className="mt-4 mb-2 flex flex-col gap-4 sm:my-0 sm:flex-row sm:p-4">
+          <div className="mt-4 flex flex-col gap-3 sm:my-0 sm:flex-row sm:p-4">
             <Button
               fullWidth
               variant="contained"
               size="large"
               onClick={submitHandler}
-              className="p-3 text-lg font-normal"
+              className="p-3 text-base font-normal xs:text-lg"
               disabled={isLoading}
             >
               {isEditing ? "Edit" : "Submit"}
@@ -121,7 +121,7 @@ const AddJob = () => {
               variant="contained"
               size="large"
               onClick={clearHandler}
-              className="p-3 text-lg font-normal"
+              className="p-3 text-base font-normal xs:text-lg"
             >
               Clear
             </Button>

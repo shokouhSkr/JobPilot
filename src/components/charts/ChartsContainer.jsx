@@ -9,8 +9,11 @@ const ChartsContainer = () => {
   return (
     <section className="text-primaryTxt">
       <div className="flex flex-col items-center justify-center">
-        <h1 className="mb-2 text-[22px]">Monthly Applications</h1>
-        <button className="text-lg text-secondaryTxt" onClick={() => setBarChart(!barChart)}>
+        <h1 className="mb-2 text-xl xs:text-[22px]">Monthly Applications</h1>
+        <button
+          className="text-base text-secondaryTxt xs:text-lg"
+          onClick={() => setBarChart(!barChart)}
+        >
           {barChart ? "Bar Chart" : "Area Chart"}
         </button>
       </div>

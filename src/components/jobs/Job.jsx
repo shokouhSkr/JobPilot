@@ -11,7 +11,7 @@ const Job = ({ _id, position, company, jobLocation, jobType, createdAt, status }
   const date = moment(createdAt).format("MMM Do, YY");
 
   return (
-    <div className="mb-6 rounded-lg bg-screen p-4 text-primaryTxt shadow-md sm:p-6">
+    <div className="mb-6 rounded-lg bg-screen p-4 text-primaryTxt shadow-md dark:bg-primaryBgDark dark:text-white sm:p-6">
       <header className="flex items-center gap-2 border-b pb-4 text-sm sm:text-base">
         <div className="m-1 flex h-12 w-12 items-center justify-center rounded-md bg-secondaryBg text-2xl text-white">
           <span>{company.charAt(0)}</span>
@@ -23,7 +23,7 @@ const Job = ({ _id, position, company, jobLocation, jobType, createdAt, status }
       </header>
 
       {/* info */}
-      <main className="mb-2 grid grid-cols-2 grid-rows-2 gap-2 py-4 px-2 text-sm sm:text-base">
+      <main className="mb-2 grid grid-cols-2 grid-rows-2 gap-3 py-4 px-2 text-sm sm:text-base">
         <div className="flex items-center gap-2">
           <ImLocation /> {jobLocation}
         </div>
@@ -33,15 +33,17 @@ const Job = ({ _id, position, company, jobLocation, jobType, createdAt, status }
         <div className="flex items-center gap-2">
           <RiSuitcase2Line /> {jobType}
         </div>
-        <span
-          className={`${
-            (status === "pending" && "w-[72px] bg-amber-100 text-yellow-600") ||
-            (status === "declined" && "w-[76px] bg-red-100 text-red-600") ||
-            (status === "interview" && "w-20 bg-green-100 text-green-600")
-          } rounded-md px-2 py-1 font-medium`}
-        >
-          {status}
-        </span>
+        <div>
+          <span
+            className={`${
+              (status === "pending" && "bg-amber-100 text-yellow-600") ||
+              (status === "declined" && " bg-red-100 text-red-600") ||
+              (status === "interview" && " bg-green-100 text-green-600")
+            } rounded-md px-2 py-1 font-medium`}
+          >
+            {status}
+          </span>
+        </div>
       </main>
 
       {/* buttons */}
@@ -49,6 +51,7 @@ const Job = ({ _id, position, company, jobLocation, jobType, createdAt, status }
         <Link to="/add-job" onClick={() => console.log("edit", _id)}>
           <Button
             variant="contained"
+            className="font-normal"
             onClick={() =>
               dispatch(
                 setEditJob({
@@ -66,7 +69,11 @@ const Job = ({ _id, position, company, jobLocation, jobType, createdAt, status }
             edit
           </Button>
         </Link>
-        <Button variant="contained" onClick={() => dispatch(deleteJob(_id))}>
+        <Button
+          variant="contained"
+          className="font-normal"
+          onClick={() => dispatch(deleteJob(_id))}
+        >
           delete
         </Button>
       </footer>

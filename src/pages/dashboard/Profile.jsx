@@ -83,7 +83,7 @@ const Profile = () => {
               variant="contained"
               size="large"
               onClick={submitHandler}
-              className="py-3 text-lg font-normal md:mb-4"
+              className="py-3 text-base font-normal xs:text-lg"
             >
               Save Changes
             </Button>
