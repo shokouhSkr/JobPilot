@@ -14,8 +14,8 @@ const Logout = () => {
   return (
     <div
       className={`${
-        isDarkMode && "bg-tertiaryBgDark"
-      } absolute bottom-0 flex w-full items-center gap-1 rounded-t-xl py-4 pr-6 pl-4`}
+        isDarkMode ? "bg-tertiaryBgDark" : "bg-white"
+      } absolute bottom-0 flex w-full items-center gap-1 rounded-t-xl  py-4 pr-6 pl-4`}
     >
       <img src={AvatarPic} alt="Avatar" className="w-24" />
 
