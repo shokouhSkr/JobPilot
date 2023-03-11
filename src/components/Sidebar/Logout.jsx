@@ -2,21 +2,26 @@ import { FiLogOut } from "react-icons/fi";
 import AvatarPic from "/src/assets/femail-avatar.png";
 import { useDispatch, useSelector } from "react-redux";
 import { clearStore } from "../../features/user/userSlice";
-import { period } from "../../utils/period";
+import { setPeriod } from "../../utils/period";
 
 const Logout = () => {
   const {
     user: { name },
+    isDarkMode,
   } = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
   return (
-    <div className="absolute bottom-0 flex w-full items-center gap-1 rounded-t-xl bg-white py-4 pr-6 pl-4">
+    <div
+      className={`${
+        isDarkMode && "bg-tertiaryBgDark"
+      } absolute bottom-0 flex w-full items-center gap-1 rounded-t-xl py-4 pr-6 pl-4`}
+    >
       <img src={AvatarPic} alt="Avatar" className="w-24" />
 
       <div>
-        <span className="block text-sm text-secondaryTxt">{period()}</span>
-        <span className="font-semibold">{name}</span>
+        <span className="block text-sm text-secondaryTxt">{setPeriod()}</span>
+        <span className={`${isDarkMode && "text-screen"} font-medium`}>{name}</span>
       </div>
 
       <button

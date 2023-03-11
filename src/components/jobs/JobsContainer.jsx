@@ -5,6 +5,7 @@ import { Job, Loading } from "..";
 import { getAllJobs, changePage } from "../../features/allJobs/allJobsSlice";
 
 const JobsContainer = () => {
+  const { isDarkMode } = useSelector((store) => store.user);
   const { isLoading, jobs, numOfPages, totalJobs, page, search, searchStatus, searchType, sort } =
     useSelector((store) => store.allJobs);
   const dispatch = useDispatch();
@@ -20,7 +21,11 @@ const JobsContainer = () => {
 
   return (
     <section>
-      <h2 className="mb-4 px-1 text-lg font-bold text-primaryTxt xs:text-xl">
+      <h2
+        className={`${
+          isDarkMode && "text-screen"
+        } mb-4 px-1 text-lg font-bold text-primaryTxt xs:text-xl`}
+      >
         {totalJobs} job{totalJobs > 1 && "s"} found
       </h2>
 
@@ -30,7 +35,7 @@ const JobsContainer = () => {
         })}
       </div>
 
-      <div className="flex justify-end ">
+      <div className="flex justify-end">
         {numOfPages > 1 && (
           <Pagination
             count={numOfPages}

@@ -1,10 +1,19 @@
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Landing, Error, Register, ProtectedRoute } from "./pages";
 import { Profile, AllJobs, Stats, AddJob, SharedLayout } from "./pages/dashboard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
+import { addLocalStorageTheme } from "./utils/localStorage";
 
 function App() {
+  const { isDarkMode } = useSelector((store) => store.user);
+
+  useEffect(() => {
+    addLocalStorageTheme(isDarkMode);
+  }, [isDarkMode]);
+
   return (
     <Router>
       <Routes>

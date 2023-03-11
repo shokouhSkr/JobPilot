@@ -12,3 +12,14 @@ export const getUserFromLocalStorage = () => {
 
   return user;
 };
+
+export const addLocalStorageTheme = (theme) => {
+  localStorage.setItem("isDarkMode", JSON.stringify(theme));
+};
+
+export const getLocalStorageTheme = () => {
+  const result = localStorage.getItem("isDarkMode");
+  const isDark = result ? JSON.parse(result) : false;
+
+  return isDark;
+};

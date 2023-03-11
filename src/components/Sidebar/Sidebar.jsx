@@ -5,6 +5,7 @@ import { closeSidebar } from "../../features/sidebar/sidebarSlice";
 
 const Sidebar = () => {
   const { isSidebarOpen } = useSelector((store) => store.sidebar);
+  const { isDarkMode } = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
   return (
@@ -19,7 +20,9 @@ const Sidebar = () => {
       <aside
         className={`${
           isSidebarOpen ? "translate-x-0" : "-translate-x-80"
-        } fixed left-0 top-0 bottom-0 z-50 w-64 bg-screen text-primaryTxt shadow-lg transition-all duration-300  md:translate-x-0`}
+        } fixed left-0 top-0 bottom-0 z-50 w-64 ${
+          isDarkMode ? "bg-[#371B58]" : "bg-screen"
+        } text-primaryTxt shadow-lg transition-transform duration-300 md:translate-x-0`}
       >
         <div className="p-4">
           <Logo sidebar />

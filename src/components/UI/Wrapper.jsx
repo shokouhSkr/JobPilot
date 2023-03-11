@@ -1,9 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Wrapper = ({ fullHight, center, children }) => {
+  const { isDarkMode } = useSelector((store) => store.user);
+
   return (
     <main
-      className={`${
+      className={`${isDarkMode && "bg-secondaryBgDark"} ${
         center ? "flex items-center justify-center md:items-start md:justify-start" : ""
       } ${fullHight ? "" : "h-screen"} px-6 pb-10 sm:px-10 md:ml-64 lg:px-12`}
     >

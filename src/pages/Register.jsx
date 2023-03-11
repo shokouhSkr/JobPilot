@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Button, TextField, InputAdornment } from "@mui/material";
 import { HiOutlineLockClosed, HiOutlineMail, HiOutlineUser } from "react-icons/hi";
-import { Logo } from "../components";
+import { logo } from "../assets";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { loginUser, registerUser } from "../features/user/userSlice";
@@ -16,7 +16,7 @@ const initialValues = {
 
 const Register = () => {
   const [values, setValues] = useState(initialValues);
-  const { user, isLoading } = useSelector((store) => store.user);
+  const { user, isLoading, isDarkMode } = useSelector((store) => store.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -58,9 +58,18 @@ const Register = () => {
   }, [user]);
 
   return (
-    <div className="grid h-screen place-items-center bg-screen px-[5%] font-roboto text-primaryTxt md:px-[7%]">
+    <div
+      className={`${
+        isDarkMode && "bg-tertiaryBgDark"
+      } grid h-screen place-items-center bg-screen px-[5%] font-roboto text-primaryTxt md:px-[7%]`}
+    >
       <form onSubmit={submitHandler} className="max-w-sm rounded-2xl bg-white p-8 shadow-md">
-        <Logo form />
+        <div className="mb-6 flex items-center justify-start">
+          <img src={logo} alt="JobPilot logo" className="h-14 w-14 rounded-xl" />
+          <span className={`ml-3 text-3xl font-extrabold tracking-widest text-primaryTxt`}>
+            JobPilot
+          </span>
+        </div>
 
         <h3 className="mb-6 mt-12 px-[2%] text-3xl font-bold">
           {!values.isMember ? "Register" : "Login"}
@@ -131,13 +140,13 @@ const Register = () => {
         </div>
 
         {/* buttons */}
-        <div className="mb-12 flex flex-col gap-4 px-[2%]">
+        <div className="mb-8 flex flex-col gap-4 px-[2%]">
           <Button
             variant="contained"
             disabled={isLoading}
             size="small"
             onClick={submitHandler}
-            className="rounded-xl bg-gradient-to-r from-primaryBg via-primaryBg to-secondaryBg py-2 text-lg font-normal capitalize"
+            className="rounded-xl bg-primaryBg py-2 text-base font-normal capitalize xs:text-lg"
           >
             {values.isMember ? "Login" : "Submit"}
           </Button>
@@ -146,15 +155,15 @@ const Register = () => {
             disabled={isLoading}
             size="small"
             onClick={() => dispatch(loginUser({ email: "testUser@test.com", password: "secret" }))}
-            className="rounded-xl bg-gradient-to-r from-primaryBg via-primaryBg to-secondaryBg py-2 text-lg font-normal capitalize"
+            className="rounded-xl bg-primaryBg py-2 text-base font-normal capitalize xs:text-lg"
           >
             demo app
           </Button>
         </div>
 
-        <p className="px-[2%] text-secondaryTxt">
+        <p className="px-[2%] text-sm text-secondaryTxt xs:text-base">
           {values.isMember ? "Don't have an account?" : "Already have an account?"}
-          <button type="button" onClick={toggleMember} className="ml-1 text-primaryTxt">
+          <button type="button" onClick={toggleMember} className="ml-2 text-primaryTxt">
             {values.isMember ? "Sign Up" : "Sign In"}
           </button>
         </p>

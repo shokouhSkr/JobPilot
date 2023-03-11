@@ -3,7 +3,6 @@ import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
 import Logo from "./UI/Logo";
 import BasicSelect from "./UI/BasicSelect";
-import Form from "./UI/Form";
 import Job from "./jobs/Job";
 import JobsContainer from "./jobs/JobsContainer";
 import SearchContainer from "./search/SearchContainer";
@@ -22,7 +21,6 @@ export {
   Logo,
   Wrapper,
   BasicSelect,
-  Form,
   Job,
   JobsContainer,
   SearchContainer,

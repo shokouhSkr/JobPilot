@@ -1,6 +1,6 @@
 import moment from "moment";
 
-export const period = () => {
+export const setPeriod = () => {
   const now = Number(moment().format("HH"));
 
   if (now >= 6 && now < 12) return "Morning";

@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { StatItem } from "..";
 import { BsBug } from "react-icons/bs";
-import { RiQuestionMark } from "react-icons/ri";
+import { MdMotionPhotosPaused } from "react-icons/md";
 import { BsCalendar2Day } from "react-icons/bs";
 
 const StatsContainer = () => {
@@ -17,13 +17,13 @@ const StatsContainer = () => {
     {
       id: "34dvfagogowfrjbnb",
       title: "Pending Applications",
-      icon: <RiQuestionMark strokeWidth="0.1" />,
+      icon: <MdMotionPhotosPaused />,
       count: stats.pending || 0,
     },
     {
       id: "34dvfagogoploplon",
       title: "Jobs Declined",
-      icon: <BsBug />,
+      icon: <BsBug strokeWidth="0.1" />,
       count: stats.declined || 0,
     },
   ];

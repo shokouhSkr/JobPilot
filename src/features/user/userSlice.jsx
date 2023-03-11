@@ -4,11 +4,13 @@ import {
   addUserToLocalStorage,
   getUserFromLocalStorage,
   removeUserFromLocalStorage,
+  getLocalStorageTheme,
 } from "../../utils/localStorage";
 import { loginUserThunk, registerUserThunk, updateUserThunk, clearStoreThunk } from "./userThunk";
 
 const initialState = {
   isLoading: false,
+  isDarkMode: getLocalStorageTheme(),
   user: getUserFromLocalStorage(),
 };
 
@@ -25,6 +27,10 @@ const userSlice = createSlice({
       state.user = null;
       removeUserFromLocalStorage();
       toast.success("logged out");
+    },
+    setDarkMode: (state, action) => {
+      state.isDarkMode = action.payload;
+      console.log("setDark mode: ", action.payload, state.isDarkMode);
     },
   },
   extraReducers: (builder) => {
@@ -88,5 +94,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { logoutUser } = userSlice.actions;
+export const { logoutUser, setDarkMode } = userSlice.actions;
 export default userSlice.reducer;

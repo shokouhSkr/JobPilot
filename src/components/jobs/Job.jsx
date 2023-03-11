@@ -2,16 +2,21 @@ import { ImLocation, ImCalendar } from "react-icons/im";
 import { RiSuitcase2Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteJob, setEditJob } from "../../features/job/jobSlice";
 import moment from "moment";
 
 const Job = ({ _id, position, company, jobLocation, jobType, createdAt, status }) => {
+  const { isDarkMode } = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const date = moment(createdAt).format("MMM Do, YY");
 
   return (
-    <div className="mb-6 rounded-lg bg-screen p-4 text-primaryTxt shadow-md dark:bg-primaryBgDark dark:text-white sm:p-6">
+    <div
+      className={`${
+        isDarkMode && "bg-tertiaryBgDark text-screen"
+      } mb-6 rounded-lg bg-screen p-4 text-primaryTxt shadow-md sm:p-6`}
+    >
       <header className="flex items-center gap-2 border-b pb-4 text-sm sm:text-base">
         <div className="m-1 flex h-12 w-12 items-center justify-center rounded-md bg-secondaryBg text-2xl text-white">
           <span>{company.charAt(0)}</span>

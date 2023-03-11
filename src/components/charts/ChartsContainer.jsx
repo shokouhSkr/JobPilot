@@ -1,15 +1,26 @@
 import React, { useState } from "react";
-import { AreaChart, BarChart } from "..";
+import { AreaChart, BarChart, Wrapper } from "..";
 import { useSelector } from "react-redux";
+import { Loading } from "../../components";
 
 const ChartsContainer = () => {
   const [barChart, setBarChart] = useState(true);
+  const { isDarkMode, isLoading } = useSelector((store) => store.user);
   const { monthlyApplications: data } = useSelector((store) => store.allJobs);
+
+  if (isLoading)
+    return (
+      <Wrapper>
+        <Loading />
+      </Wrapper>
+    );
 
   return (
     <section className="text-primaryTxt">
       <div className="flex flex-col items-center justify-center">
-        <h1 className="mb-2 text-xl xs:text-[22px]">Monthly Applications</h1>
+        <h1 className={`${isDarkMode && "text-screen"} mb-2 text-xl xs:text-[22px]`}>
+          Monthly Applications
+        </h1>
         <button
           className="text-base text-secondaryTxt xs:text-lg"
           onClick={() => setBarChart(!barChart)}

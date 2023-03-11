@@ -1,9 +1,10 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { closeSidebar } from "../../features/sidebar/sidebarSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const SidebarLink = ({ title, path, icon }) => {
+  const { isDarkMode } = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -14,7 +15,7 @@ const SidebarLink = ({ title, path, icon }) => {
         onClick={() => dispatch(closeSidebar())}
         className={({ isActive }) =>
           `relative mb-1 flex items-center justify-start gap-4 pl-6 text-[17px] transition-all duration-[400ms] ${
-            isActive ? "text-primaryTxt" : "text-secondaryTxt"
+            isActive ? `${isDarkMode ? "text-screen" : "text-primaryTxt"}` : "text-secondaryTxt"
           }`
         }
       >
