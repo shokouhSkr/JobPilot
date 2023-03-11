@@ -13,7 +13,7 @@ const Header = ({ page }) => {
   return (
     <header
       className={`${
-        isDarkMode && "bg-[#4C3575]"
+        isDarkMode && "bg-secondaryBgDark"
       } flex items-center justify-between px-6 py-8 sm:p-12 md:ml-64`}
     >
       <div>

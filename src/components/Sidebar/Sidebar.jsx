@@ -21,7 +21,7 @@ const Sidebar = () => {
         className={`${
           isSidebarOpen ? "translate-x-0" : "-translate-x-80"
         } fixed left-0 top-0 bottom-0 z-50 w-64 ${
-          isDarkMode ? "bg-[#371B58]" : "bg-screen"
+          isDarkMode ? "bg-primaryBgDark" : "bg-screen"
         } text-primaryTxt shadow-lg transition-transform duration-300 md:translate-x-0`}
       >
         <div className="p-4">

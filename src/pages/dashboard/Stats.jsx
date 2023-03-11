@@ -12,6 +12,13 @@ const Stats = () => {
     dispatch(showStats());
   }, []);
 
+  if (isLoading)
+    return (
+      <Wrapper>
+        <Loading />
+      </Wrapper>
+    );
+
   return (
     <>
       <Header page="Stats" />
