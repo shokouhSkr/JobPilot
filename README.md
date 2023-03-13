@@ -1,6 +1,6 @@
 # JobPilot
 
-JobPilot is a web application, implemented with reactjs, tailwindcss and material UI libraries, that lets you track your job journey as your pending job applications, upcoming interviews, and declined offers all in one place, so you can easily manage your job search journey from start to finish.
+JobPilot is a web application, implemented with ReactJS, Tailwind CSS and material UI libraries, that lets you track your job journey as your pending job applications, upcoming interviews, and declined offers all in one place, so you can easily manage your job search journey from start to finish.
 
 ## Features
 
