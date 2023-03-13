@@ -12,7 +12,7 @@ JobPilot is a web application, implemented with ReactJS, Tailwind CSS and materi
 
 ## Demo
 
-You can try JobPilot by visiting [www.jobpilot-skr.netlify.app](https://www.jobpilot-skr.netlify.app).
+You can try JobPilot by visiting [www.jobpilot-skr.netlify.app](https://jobpilot-skr.netlify.app).
 
 ## Contact
 
