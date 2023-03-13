@@ -18,7 +18,11 @@ const JobsContainer = () => {
 
   if (jobs.length === 0)
     return (
-      <h1 className="mx-auto flex h-screen justify-center text-lg font-normal text-primaryTxt md:text-xl">
+      <h1
+        className={`${
+          isDarkMode && "text-screen"
+        } mx-auto flex h-screen justify-center text-lg font-normal text-primaryTxt md:text-xl`}
+      >
         No jobs to display.
       </h1>
     );

@@ -38,8 +38,11 @@ const Profile = () => {
     <>
       <Header page="Profile" />
 
-      <Wrapper>
-        <form className="relative rounded-lg bg-screen p-4 text-primaryTxt shadow-md">
+      <Wrapper fullHight>
+        <form
+          onSubmit={submitHandler}
+          className="relative rounded-lg bg-screen p-4 text-primaryTxt shadow-md"
+        >
           <div className="grid grid-cols-1 grid-rows-4 gap-y-5 sm:grid-cols-2 sm:grid-rows-2 sm:gap-6 sm:p-4 md:mt-5">
             <TextField
               fullWidth
@@ -79,6 +82,7 @@ const Profile = () => {
             />
             <Button
               fullWidth
+              type="submit"
               disabled={isLoading}
               variant="contained"
               size="large"

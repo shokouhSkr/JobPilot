@@ -8,7 +8,7 @@ const Wrapper = ({ fullHight, center, children }) => {
     <main
       className={`${isDarkMode && "bg-secondaryBgDark"} ${
         center ? "flex items-center justify-center md:items-start md:justify-start" : ""
-      } ${fullHight ? "" : "h-screen"} px-6 pb-10 sm:px-10 md:ml-64 lg:px-12`}
+      } ${fullHight ? "h-[calc(100vh-100px)]" : ""} px-6 pb-10 sm:px-10 md:ml-64 lg:px-12`}
     >
       {children}
     </main>

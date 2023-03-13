@@ -4,7 +4,7 @@ export const getAllJobsThunk = async (_, thunkAPI) => {
   // console.log(thunkAPI.getState()) => {user: {…}, sidebar: {…}, job: {…}, allJobs: {…}}
   const { page, search, searchType, searchStatus, sort } = thunkAPI.getState().allJobs;
 
-  // let url = '/jobs'
+  // let url = "/jobs";
   let url = `/jobs?status=${searchStatus}&jobType=${searchType}&sort=${sort}&page=${page}`;
   if (search) url = url + `&search=${search}`;
 

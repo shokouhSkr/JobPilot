@@ -5,7 +5,7 @@ const AllJobs = () => {
     <>
       <Header page="All Jobs" />
 
-      <Wrapper fullHight>
+      <Wrapper>
         <SearchContainer />
         <JobsContainer />
       </Wrapper>

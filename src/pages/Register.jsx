@@ -144,6 +144,7 @@ const Register = () => {
           <Button
             variant="contained"
             disabled={isLoading}
+            type="submit"
             size="small"
             onClick={submitHandler}
             className="rounded-xl bg-primaryBg py-2 text-base font-normal capitalize xs:text-lg"

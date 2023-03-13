@@ -57,9 +57,9 @@ const AddJob = () => {
 
   return (
     <>
-      <Header page="Add Job" />
+      <Header page={isEditing ? "Edit Job" : "Add Job"} />
 
-      <Wrapper>
+      <Wrapper fullHight>
         <form className="relative mb-12 rounded-lg bg-screen p-4 text-primaryTxt shadow-md">
           <div className="grid grid-cols-1 grid-rows-4 gap-y-5 sm:grid-cols-2 sm:grid-rows-2 sm:gap-6 sm:p-4 md:mt-5">
             <TextField
@@ -114,7 +114,7 @@ const AddJob = () => {
               className="p-3 text-base font-normal xs:text-lg"
               disabled={isLoading}
             >
-              {isEditing ? "Edit" : "Submit"}
+              {isEditing ? "Edit" : "Add"}
             </Button>
             <Button
               fullWidth
