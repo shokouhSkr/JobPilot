@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 const ChartsContainer = () => {
   const [barChart, setBarChart] = useState(true);
-  const { isDarkMode, isLoading } = useSelector((store) => store.user);
+  const { isDarkMode } = useSelector((store) => store.user);
   const { monthlyApplications: data } = useSelector((store) => store.allJobs);
 
   return (
