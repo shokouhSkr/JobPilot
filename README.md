@@ -4,9 +4,9 @@ JobPilot is a web application, implemented with ReactJS, Tailwind CSS and materi
 
 ## Features
 
-- **Job tracking**: Easily manage your job search journey by tracking your pending applications, upcoming interviews, and declined offers.
 - **User authentication**: Register and sign in to your JobPilot account to access your personalized job tracking dashboard.
 - **Job management**: Add, delete, and update job listings as your job search progresses.
+- **Monthly chart**: Includeing bar chart and area chart to keep track of your all applications in the last six month. 
 - **Dark mode**: Toggle between light and dark mode to suit your preferences.
 - **Fully responsive**: Access JobPilot on any device, making it easy to manage your job search on-the-go.
 
