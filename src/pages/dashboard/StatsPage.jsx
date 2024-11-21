@@ -28,13 +28,22 @@ const StatsPage = () => {
 					<StatsContainer />
 					{monthlyApplications.length > 0 && <ChartsContainer />}
 					{!monthlyApplications.length && (
-						<h1
-							className={`${
-								isDarkMode && "text-screen"
-							} mx-auto flex h-screen justify-center text-lg font-normal text-primaryTxt md:text-xl`}
-						>
-							Once you add your job information, a chart will appear here.
-						</h1>
+						// <h1
+						// 	className={`${
+						// 		isDarkMode && "text-screen"
+						// 	} mx-auto flex h-screen justify-center text-lg font-normal text-primaryTxt md:text-xl`}
+						// >
+						// 	Once you add your job information, a chart will appear here.
+						// </h1>
+						<div>
+							<h1
+								className={`${
+									isDarkMode && "text-screen"
+								} mx-auto flex h-[calc(100vh-400px)] justify-center text-lg font-normal text-primaryTxt md:text-xl`}
+							>
+								Once you add your job information, a chart will appear here.
+							</h1>
+						</div>
 					)}
 				</Wrapper>
 			)}
