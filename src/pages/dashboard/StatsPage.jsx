@@ -23,19 +23,21 @@ const StatsPage = () => {
 				</Wrapper>
 			)}
 
-			<Wrapper>
-				<StatsContainer />
-				{monthlyApplications.length > 0 && <ChartsContainer />}
-				{!monthlyApplications.length && (
-					<h1
-						className={`${
-							isDarkMode && "text-screen"
-						} mx-auto flex h-screen justify-center text-lg font-normal text-primaryTxt md:text-xl`}
-					>
-						Once you add your job information, a chart will appear here.
-					</h1>
-				)}
-			</Wrapper>
+			{!isLoading && (
+				<Wrapper fullHight>
+					<StatsContainer />
+					{monthlyApplications.length > 0 && <ChartsContainer />}
+					{!monthlyApplications.length && (
+						<h1
+							className={`${
+								isDarkMode && "text-screen"
+							} mx-auto flex h-screen justify-center text-lg font-normal text-primaryTxt md:text-xl`}
+						>
+							Once you add your job information, a chart will appear here.
+						</h1>
+					)}
+				</Wrapper>
+			)}
 		</>
 	);
 };
